@@ -1,0 +1,75 @@
+:root {
+	--border-color1: #2ecc71;
+	--border-color2: #4bff97;
+	--speed: 5s;
+	--cam-color:transparent;
+}
+.animated-gradient-border {
+	position: relative;
+}
+.animated-gradient-border .left {
+	background: linear-gradient(240deg, var(--border-color2), var(--border-color1));
+	background-size: 1200% 1200%;
+	-webkit-animation: gradient-animated var(--speed) ease infinite;
+	animation: gradient-animated var(--speed) ease infinite;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+}
+.animated-gradient-border .right {
+	background: linear-gradient(240deg, var(--border-color2), var(--border-color1));
+	background-size: 1200% 1200%;
+	-webkit-animation: gradient-animated var(--speed) ease infinite;
+	animation: gradient-animated var(--speed) ease infinite;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+}
+.animated-gradient-border .top {
+	background: linear-gradient(240deg, var(--border-color2), var(--border-color1));
+	background-size: 1200% 1200%;
+	-webkit-animation: gradient-animated var(--speed) ease infinite;
+	animation: gradient-animated var(--speed) ease infinite;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 4px;
+}
+.animated-gradient-border .bottom {
+	background: linear-gradient(240deg, var(--border-color2), var(--border-color1));
+	background-size: 1200% 1200%;
+	-webkit-animation: gradient-animated var(--speed) ease infinite;
+	animation: gradient-animated var(--speed) ease infinite;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 4px;
+}
+@-webkit-keyframes gradient-animated {
+	0% {
+		background-position: 0% 94%;
+	}
+	50% {
+		background-position: 100% 7%;
+	}
+	100% {
+		background-position: 0% 94%;
+	}
+}
+@keyframes gradient-animated {
+	0% {
+		background-position: 0% 94%;
+	}
+	50% {
+		background-position: 100% 7%;
+	}
+	100% {
+		background-position: 0% 94%;
+	}
+}

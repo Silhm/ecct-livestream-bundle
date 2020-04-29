@@ -1,0 +1,90 @@
+{
+  "name": "ecct-livestream-bundle",
+  "version": "0.0.1",
+  "description": "Stream layout for the show «ECCT by Kakemono» made with NodeCG",
+  "homepage": "",
+  "author": {
+    "name": "Simon",
+    "email": "mail@simon-florentin.fr",
+    "url": ""
+  },
+  "scripts": {
+    "start": "npm run bundle",
+    "bundle": "node scripts/bundle.js",
+    "build": "set NODE_ENV=production && npm run bundle"
+  },
+  "files": [
+    "src/dashboard",
+    "src/graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "livestream",
+    "nodecg",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "show",
+        "title": "Emission",
+        "workspace": "ECCT",
+        "width": 2,
+        "file": "show-ctrl.html",
+        "headerColor": "#964994"
+      },
+      {
+        "name": "guest",
+        "title": "Invités",
+        "workspace": "ECCT",
+        "width": 7,
+        "file": "guest-ctrl.html",
+        "headerColor": "#49964f"
+      },
+      {
+        "name": "moment",
+        "title": "Moments",
+        "workspace": "ECCT",
+        "width": 7,
+        "file": "moment-ctrl.html",
+        "headerColor": "#494f96"
+      },
+      {
+        "name": "layout-switcher",
+        "title": "Layout",
+        "workspace": "ECCT",
+        "width": 2,
+        "file": "layout-switcher-ctrl.html",
+        "headerColor": "#dc8225"
+      }
+    ],
+    "graphics": [
+      {
+        "name": "Background Howl",
+        "file": "background-ctrl.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.12.0",
+    "child_process": "^1.0.2",
+    "nodecg-vue": "^0.5.2",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.1.2"
+  }
+}
