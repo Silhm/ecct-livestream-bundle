@@ -6,7 +6,7 @@ fork('./node_modules/parcel-bundler/bin/cli.js', [
 	command,
 	'src/graphics/*.html',
 	'--out-dir',
-	'dist/graphics',
+	'graphics',
 	'--public-url',
 	'.'
 ]);
@@ -15,7 +15,7 @@ fork('./node_modules/parcel-bundler/bin/cli.js', [
 	command,
 	'src/dashboard/*.html',
 	'--out-dir',
-	'dist/dashboard',
+	'dashboard',
 	'--public-url',
 	'.'
 ]);
