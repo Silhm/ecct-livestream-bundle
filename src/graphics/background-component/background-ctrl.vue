@@ -7,10 +7,16 @@
 			:logo2="logo2"
 			class="header"
 		></header-ctrl>
-		<layout-ctrl :camCount="camCount" :cams="cams"></layout-ctrl>
+		<layout-ctrl :camCount="camCount"
+					 :cams="cams"
+					 :camColor="camColor"
+		></layout-ctrl>
 		<aside>
-			<chat-ctrl></chat-ctrl>
-			<cam-ctrl class="cam-host">host</cam-ctrl>
+			<chat-ctrl :color="camColor"
+			></chat-ctrl>
+			<cam-ctrl class="cam-host"
+					  :bgColor="camColor"
+			>host</cam-ctrl>
 		</aside>
 
 		<footer-ctrl :text="footer" class="footer"></footer-ctrl>
@@ -35,7 +41,9 @@
 				logo2: './assets/logo/kakemono.png',
 				camCount: 4,
 				cams: [],
-				theme: ''
+				theme: '',
+				camColor: 'transparent',
+				displayCamColor: 'false'
 			};
 		},
 		components: {
@@ -48,6 +56,7 @@
 		created() {
 			this.showReplicant = nodecg.Replicant('show','ECCT');
 			this.guestReplicant = nodecg.Replicant('guests','ECCT');
+			this.layoutReplicant = nodecg.Replicant('layout','ECCT');
 
 			this.showReplicant.on('change', (newValue, oldValue) => {
 				console.log('show', newValue);
@@ -60,8 +69,16 @@
 			});
 			this.guestReplicant.on('change', (newValue, oldValue) => {
 				console.log("guests",newValue);
-				this.camCount = newValue.length;
-				this.cams = newValue;
+				if(newValue) {
+					this.camCount = newValue.length;
+					this.cams = newValue;
+				}
+			});
+			this.layoutReplicant.on('change', (newValue, oldValue) => {
+				if(newValue) {
+					console.log("layout",newValue);
+					this.camColor = newValue.displayCamColor ==='true' ? newValue.camColor:null;
+				}
 			});
 		},
 		watch:{

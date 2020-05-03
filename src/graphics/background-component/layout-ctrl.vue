@@ -5,13 +5,11 @@
 				  	:camera="cam"
 				  	:totalCams="camCount"
 				  	:title="'cam'+(index+1)"
-				  	:displayCamColor="displayCamColor"
-				  	:camColor="camColor"
+				  	:bgColor="camColor"
 		></cam-ctrl>
 		<cam-ctrl class="presentation-frame"
 				  title="présentation"
-				  :displayCamColor="displayCamColor"
-				  :camColor="camColor"
+				  :bgColor="camColor"
 		></cam-ctrl>
 	</div>
 </template>
@@ -23,8 +21,7 @@
 		data() {
 			return {
 				layout: 'guests',
-				camColor: '#1aff00',
-				displayCamColor: "false"
+				bgColor: null
 			};
 		},
 		components: {
@@ -36,29 +33,9 @@
 			},
 			cams:{
 				type: Array
-			}
-		},
-		created() {
-			this.replicant = nodecg.Replicant('layout','ECCT');
-			let self = this;
-			this.replicant.on('change', (newValue, oldValue) => {
-				console.log('show', newValue);
-				if(newValue) {
-					self.layout = newValue.layout;
-					self.camColor = newValue.camColor;
-					self.displayCamColor = newValue.displayCamColor;
-				}
-			});
-		},
-		methods: {
-
-		},
-		watch:{
-			displayCamColor(){
-
-				if(this.displayCamColor === 'true'){
-					console.log("camColor force", this.camColor);
-				}
+			},
+			camColor: {
+				type: String
 			}
 		}
 	};

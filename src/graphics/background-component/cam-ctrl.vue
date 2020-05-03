@@ -43,19 +43,15 @@
 			borderColor2: {
 				type: String
 			},
+			bgColor: {
+				type: String
+			},
 			camera: {
 				type: Object
 			},
 			totalCams: {
 				type: Number
-			},
-			camColor: {
-				type: String
-			},
-			displayCamColor: {
-				type: String
 			}
-
 		},
 		watch: {
 			borderColor1(newColor, oldColor){
@@ -64,14 +60,12 @@
 			borderColor2(newColor, oldColor){
 				console.log('borderColor2 changed: ', newColor, ' | was: ', oldColor)
 			},
-			displayCamColor(newVal, oldColor){
+			bgColor(newVal, oldColor){
 				console.log('camcolor changed: ', newVal);
-				const newCamStyle = {
-					color: this.camColor,
-					background: this.camColor
-				}
-				this.camStyle = newVal === 'true'? newCamStyle:null;
-
+				this.camStyle = {
+					color: newVal,
+					background: newVal
+				};
 			}
 		}
 	};
