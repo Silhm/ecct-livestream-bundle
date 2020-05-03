@@ -1,6 +1,5 @@
 # ecct-livestream-bundle
-This is a [NodeCG](http://github.com/nodecg/nodecg) bundle for ECCT Livestream.
-
+This is a [NodeCG](http://github.com/nodecg/nodecg) bundle for ECCT Livestream 
 It works with NodeCG versions which satisfy this [semver](https://docs.npmjs.com/getting-started/semantic-versioning) range: `^1.1.1`
 
 You will need to have an appropriate version of NodeCG installed to use it.
@@ -16,7 +15,7 @@ cd nodecg
 nodecg setup
 ```
 
-Check if it's running:
+Check if it's running
 
 Run `node index.js` or `nodecg start` in the root nodecg folder.
 
@@ -47,3 +46,5 @@ Run in production
 
 `npm run build`
 
+
+Don't forget to make appropriate configuration for nodeCG!
