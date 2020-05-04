@@ -5,7 +5,6 @@
 			<b-form-group
 				id="input-group-1"
 				label="Thème"
-				label-for="themeInput"
 			>
 				<b-form-select v-model="theme" :options="items"></b-form-select>
 			</b-form-group>
@@ -13,12 +12,27 @@
 			<b-form-group
 				id="input-group-2"
 				label="Background"
-				label-for="themeInput"
 			>
 				<b-form-select v-model="background" :options="backgroundList"></b-form-select>
 			</b-form-group>
 
 
+			<b-row>
+				<b-col>
+					<b-form-group
+						id="input-group-3"
+						label="Border color 1"
+					><b-form-input type="color" v-model="borderColor1"></b-form-input>
+					</b-form-group>
+				</b-col>
+				<b-col>
+					<b-form-group
+						id="input-group-4"
+						label="Border color 2"
+					><b-form-input type="color" v-model="borderColor2"></b-form-input>
+					</b-form-group>
+				</b-col>
+			</b-row>
 
 
 			<b-button @click="submit" variant="success">Valider</b-button>
@@ -34,6 +48,8 @@
 				theme: 'green',
 				background: 'https://via.placeholder.com/1920x1080?text=1920x1080',
 				backgroundList: [],
+				borderColor1: '#3d3d3d',
+				borderColor2: '#6f6f6f',
 				items: [
 					{value:"green",text:"Vert"},
 					{value:"purple",text:"Violet"},
@@ -62,7 +78,9 @@
 			submit() {
 				this.replicant.value = {
 					theme: this.theme,
-					background: this.background
+					background: this.background,
+					borderColor1: this.borderColor1,
+					borderColor2: this.borderColor2
 				}
 				console.log("info sent!", this.replicant);
 			},

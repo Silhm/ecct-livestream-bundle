@@ -39,7 +39,7 @@
         "name": "theme",
         "title": "Thème",
         "workspace": "ECCT configuration",
-        "width": 5,
+        "width": 2,
         "file": "theme-ctrl.html",
         "headerColor": "#964994"
       },

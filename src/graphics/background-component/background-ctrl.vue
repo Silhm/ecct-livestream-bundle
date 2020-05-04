@@ -39,6 +39,10 @@
 				footer: 'Show subtitle',
 				logo1: './assets/logo/ecct.png',
 				logo2: './assets/logo/kakemono.png',
+				borderColor: {
+					color1: '#ffffff',
+					color2: '#ffffff'
+				},
 				background: '',
 				winStyle: {},
 				camCount: 4,
@@ -87,6 +91,10 @@
 					console.log("theme",newValue);
 					this.background = newValue.background;
 					this.theme = newValue.theme;
+					this.borderColor = {
+						color1: newValue.borderColor1,
+						color2: newValue.borderColor2,
+					}
 				}
 			});
 		},
@@ -98,9 +106,12 @@
 				this.winStyle = {
 					backgroundImage : `url(${newBg})`
 				};
+			},
+			borderColor(newColor,oldColor){
+				console.log("la newColor  changed",newColor);
+				this.$el.style.setProperty('--border-color1', newColor.color1);
+				this.$el.style.setProperty('--border-color2', newColor.color2);
 			}
-
-
 		},
 		methods: {
 
@@ -157,11 +168,6 @@
 
 	/* themes */
 	.theme-purple{
-		--border-color1 : rgb(196, 92, 177);
-		--border-color2 : rgb(169, 76, 153);
-
-		background-image: url(assets/backgrounds/kpop-stage.jpg);
-
 		.header{
 			background: linear-gradient(90deg, rgba(1, 1, 1, 0.83) 0%, rgba(121, 9, 100, 0.81) 38%, rgb(29, 29, 29) 100%);
 		}
@@ -172,18 +178,12 @@
 
 	/* themes */
 	.theme-korea{
-		--border-color1 : #ffb2b2;
-		--border-color2 : #ffdde2;
-
-		background-image: url(assets/backgrounds/korea.png);
-
 		.header{
 			background: linear-gradient(90deg, rgba(1, 1, 1, 0.83) 0%, rgb(173, 201, 235) 38%, #1d1d1d 100%);
 		}
 		.footer{
 			background: linear-gradient(90deg, rgb(77, 90, 106) 0%, rgb(173, 201, 235) 50%, rgba(29, 29, 29, 0) 70%);
 		}
-
 		.lower-third h3.tde span{
 			color: #609ee9;
 		}
