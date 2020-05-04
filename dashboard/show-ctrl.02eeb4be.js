@@ -8940,13 +8940,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -8954,17 +8947,6 @@ var _default = {
       hashtag: '#restezchezvous',
       subtitle: '',
       date: new Date().toISOString().substr(0, 10),
-      theme: "green",
-      items: [{
-        value: "green",
-        text: "Vert"
-      }, {
-        value: "purple",
-        text: "Violet"
-      }, {
-        value: "korea",
-        text: "Korea"
-      }],
       valid: false,
       required: function required(value) {
         return !!value || 'Required.';
@@ -8981,22 +8963,21 @@ var _default = {
         name: this.name,
         subtitle: this.subtitle,
         date: this.date,
-        hashtag: this.hashtag,
-        theme: this.theme
+        hashtag: this.hashtag
       };
       console.log("info sent!", this.replicant);
     }
   }
 };
 exports.default = _default;
-        var $d01b68 = exports.default || module.exports;
+        var $afa01a = exports.default || module.exports;
       
-      if (typeof $d01b68 === 'function') {
-        $d01b68 = $d01b68.options;
+      if (typeof $afa01a === 'function') {
+        $afa01a = $afa01a.options;
       }
     
         /* template */
-        Object.assign($d01b68, (function () {
+        Object.assign($afa01a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9095,30 +9076,6 @@ exports.default = _default;
           ),
           _vm._v(" "),
           _c(
-            "b-form-group",
-            {
-              attrs: {
-                id: "input-group-3",
-                label: "Thème",
-                "label-for": "themeInput"
-              }
-            },
-            [
-              _c("b-form-select", {
-                attrs: { options: _vm.items },
-                model: {
-                  value: _vm.theme,
-                  callback: function($$v) {
-                    _vm.theme = $$v
-                  },
-                  expression: "theme"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
             "b-button",
             { attrs: { variant: "success" }, on: { click: _vm.submit } },
             [_vm._v("Valider")]
@@ -9137,7 +9094,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-d01b68",
+            _scopeId: "data-v-afa01a",
             functional: undefined
           };
         })());
@@ -9150,9 +9107,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$d01b68', $d01b68);
+            api.createRecord('$afa01a', $afa01a);
           } else {
-            api.reload('$d01b68', $d01b68);
+            api.reload('$afa01a', $afa01a);
           }
         }
 
@@ -57531,7 +57488,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40231" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34701" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
