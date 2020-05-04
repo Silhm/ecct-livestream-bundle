@@ -42,13 +42,6 @@
 				></b-form-input>
 			</b-form-group>
 
-			<b-form-group
-				id="input-group-3"
-				label="Thème"
-				label-for="themeInput"
-			>
-				<b-form-select v-model="theme" :options="items"></b-form-select>
-			</b-form-group>
 			<b-button @click="submit" variant="success">Valider</b-button>
 		</b-form>
 	</b-container>
@@ -63,12 +56,6 @@
 				hashtag: '#restezchezvous',
 				subtitle: '',
 				date: new Date().toISOString().substr(0, 10),
-				theme: "green",
-				items: [
-					{value:"green",text:"Vert"},
-					{value:"purple",text:"Violet"},
-					{value:"korea",text:"Korea"}
-				],
 				valid: false,
 				required: value => !!value || 'Required.',
 				menu: false,
@@ -83,8 +70,7 @@
 					name: this.name,
 					subtitle: this.subtitle,
 					date: this.date,
-					hashtag: this.hashtag,
-					theme: this.theme
+					hashtag: this.hashtag
 				}
 				console.log("info sent!", this.replicant);
 			},

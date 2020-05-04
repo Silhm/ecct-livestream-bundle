@@ -30,15 +30,23 @@
       {
         "name": "show",
         "title": "Emission",
-        "workspace": "ECCT",
-        "width": 2,
+        "workspace": "ECCT configuration",
+        "width": 10,
         "file": "show-ctrl.html",
+        "headerColor": "#964994"
+      },
+      {
+        "name": "theme",
+        "title": "Thème",
+        "workspace": "ECCT configuration",
+        "width": 5,
+        "file": "theme-ctrl.html",
         "headerColor": "#964994"
       },
       {
         "name": "guest",
         "title": "Invités",
-        "workspace": "ECCT",
+        "workspace": "ECCT live",
         "width": 7,
         "file": "guest-ctrl.html",
         "headerColor": "#49964f"
@@ -46,7 +54,7 @@
       {
         "name": "moment",
         "title": "(Moments) pas encore dispo",
-        "workspace": "ECCT",
+        "workspace": "in dev",
         "width": 7,
         "file": "moment-ctrl.html",
         "headerColor": "#494f96"
@@ -54,7 +62,7 @@
       {
         "name": "layout-switcher",
         "title": "Layout",
-        "workspace": "ECCT",
+        "workspace": "ECCT live",
         "width": 2,
         "file": "layout-switcher-ctrl.html",
         "headerColor": "#dc8225"
@@ -66,6 +74,18 @@
         "file": "background-ctrl.html",
         "width": 1920,
         "height": 1080
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "logo",
+        "title": "Logo",
+        "allowedTypes": ["jpg", "jpeg", "gif", "png"]
+      },
+      {
+        "name": "background",
+        "title": "Background",
+        "allowedTypes": ["jpg", "jpeg", "gif", "png"]
       }
     ]
   },

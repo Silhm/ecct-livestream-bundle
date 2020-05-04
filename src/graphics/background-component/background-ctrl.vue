@@ -1,5 +1,5 @@
 <template>
-	<div class="grid-container guest-count-4" :class="'theme-'+theme">
+	<div class="grid-container guest-count-4" :class="'theme-'+theme" :style="winStyle">
 		<header-ctrl
 			:title="title"
 			:hashtag="hashtag"
@@ -39,6 +39,8 @@
 				footer: 'Show subtitle',
 				logo1: './assets/logo/ecct.png',
 				logo2: './assets/logo/kakemono.png',
+				background: '',
+				winStyle: {},
 				camCount: 4,
 				cams: [],
 				theme: '',
@@ -57,13 +59,13 @@
 			this.showReplicant = nodecg.Replicant('show','ECCT');
 			this.guestReplicant = nodecg.Replicant('guests','ECCT');
 			this.layoutReplicant = nodecg.Replicant('layout','ECCT');
+			this.themeReplicant = nodecg.Replicant('theme','ECCT');
 
 			this.showReplicant.on('change', (newValue, oldValue) => {
 				console.log('show', newValue);
 				if(newValue) {
 					this.title = newValue.name;
 					this.hashtag = newValue.hashtag;
-					this.theme = newValue.theme;
 					this.footer = newValue.subtitle;
 				}
 			});
@@ -80,12 +82,25 @@
 					this.camColor = newValue.displayCamColor ==='true' ? newValue.camColor:null;
 				}
 			});
+			this.themeReplicant.on('change', (newValue, oldValue) => {
+				if(newValue) {
+					console.log("theme",newValue);
+					this.background = newValue.background;
+					this.theme = newValue.theme;
+				}
+			});
 		},
 		watch:{
 			theme(newTheme,oldTheme){
 				console.log("newTheme:",newTheme);
-
+			},
+			background(newBg,oldBg){
+				this.winStyle = {
+					backgroundImage : `url(${newBg})`
+				};
 			}
+
+
 		},
 		methods: {
 
