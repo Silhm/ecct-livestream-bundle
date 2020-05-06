@@ -166,30 +166,30 @@
   grid-template-rows: 5% 1fr 5% 1fr 10%;
   grid-template-areas: ". . . . . . . ." "g1 g1 g2 g2 g3 g3 g4 g4" ". . . . . . . ." "g5 g5 g6 g6 g7 g7 g8 g8" ". . . . . . . .";
 }
-.empty-mode .cam-content[data-v-305dad],
-.empty-mode .presentation-frame[data-v-305dad] {
+[layout=empty] .cam-content[data-v-305dad],
+[layout=empty] .presentation-frame[data-v-305dad] {
   display: none;
 }
-.presentation-mode .presentation-frame[data-v-305dad] {
+[layout=presentation] .presentation-frame[data-v-305dad] {
   display: inherit;
 }
-.presentation-mode.count-3[data-v-305dad] {
+[layout=presentation].count-3[data-v-305dad] {
   grid-template-columns: 20% 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: "g1 pres pres" "g2 pres pres" "g3 pres pres";
   padding: 0;
 }
-.presentation-mode.count-4[data-v-305dad] {
+[layout=presentation].count-4[data-v-305dad] {
   grid-template-columns: 20% 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "g1 pres pres" "g2 pres pres" "g3 pres pres" "g4 pres pres";
 }
-.presentation-mode.count-5[data-v-305dad] {
+[layout=presentation].count-5[data-v-305dad] {
   grid-template-columns: 20% 20% 20% 20% 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "g1 pres pres pres pres" "g2 pres pres pres pres" "g3 pres pres pres pres" ". . g4 g5 .";
 }
-.presentation-mode.count-6[data-v-305dad] {
+[layout=presentation].count-6[data-v-305dad] {
   grid-template-columns: 20% 20% 20% 20% 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "g1 pres pres pres pres" "g2 pres pres pres pres" "g3 pres pres pres pres" ". g4 g5 g6 .";

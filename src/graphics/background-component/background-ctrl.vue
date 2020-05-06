@@ -10,6 +10,7 @@
 		<layout-ctrl :camCount="camCount"
 					 :cams="cams"
 					 :camColor="camColor"
+					 :layout="layout"
 		></layout-ctrl>
 		<aside>
 			<chat-ctrl :color="camColor"
@@ -39,6 +40,7 @@
 				footer: 'Show subtitle',
 				logo1: './assets/logo/ecct.png',
 				logo2: './assets/logo/kakemono.png',
+				layout: 'guests',
 				borderColor: {
 					color1: '#ffffff',
 					color2: '#ffffff'
@@ -84,6 +86,7 @@
 				if(newValue) {
 					console.log("layout",newValue);
 					this.camColor = newValue.displayCamColor ==='true' ? newValue.camColor:null;
+					this.layout = newValue.layout;
 				}
 			});
 			this.themeReplicant.on('change', (newValue, oldValue) => {

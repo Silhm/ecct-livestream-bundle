@@ -1,5 +1,5 @@
 <template>
-	<div class="grid" :class="'count-'+camCount +' '+layout+'-mode'">
+	<div class="grid" :class="'count-'+camCount">
 		<cam-ctrl v-for="(cam, index) in cams"
 				  	:class="'guest'+(index+1)"
 				  	:camera="cam"
@@ -128,14 +128,14 @@
 			". . . . . . . .";
 	}
 
-	.empty-mode{
+	[layout="empty"] {
 		.cam-content,
 		.presentation-frame{
 			display: none;
 		}
 	}
 
-	.presentation-mode {
+	[layout="presentation"] {
 		.presentation-frame{
 			display: inherit;
 		}

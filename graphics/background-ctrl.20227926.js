@@ -9411,10 +9411,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "grid",
-      class: "count-" + _vm.camCount + " " + _vm.layout + "-mode"
-    },
+    { staticClass: "grid", class: "count-" + _vm.camCount },
     [
       _vm._l(_vm.cams, function(cam, index) {
         return _c("cam-ctrl", {
@@ -9514,6 +9511,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
@@ -9522,6 +9520,7 @@ var _default = {
       footer: 'Show subtitle',
       logo1: './assets/logo/ecct.png',
       logo2: './assets/logo/kakemono.png',
+      layout: 'guests',
       borderColor: {
         color1: '#ffffff',
         color2: '#ffffff'
@@ -9570,6 +9569,7 @@ var _default = {
       if (newValue) {
         console.log("layout", newValue);
         _this.camColor = newValue.displayCamColor === 'true' ? newValue.camColor : null;
+        _this.layout = newValue.layout;
       }
     });
     this.themeReplicant.on('change', function (newValue, oldValue) {
@@ -9636,7 +9636,8 @@ exports.default = _default;
         attrs: {
           camCount: _vm.camCount,
           cams: _vm.cams,
-          camColor: _vm.camColor
+          camColor: _vm.camColor,
+          layout: _vm.layout
         }
       }),
       _vm._v(" "),
@@ -67481,7 +67482,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35085" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43393" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
