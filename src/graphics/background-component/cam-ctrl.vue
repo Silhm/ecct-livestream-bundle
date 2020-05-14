@@ -2,19 +2,17 @@
 	<div class="cam-content animated-gradient-border" :style="camStyle">
 		{{title}}
 
-		<div v-if="camera && camera.name" class="lower-third">
+		<div v-if="camera && camera.name" class="lower-third" :class="{'small':(totalCams > 4) || (layout === 'presentation')}" :layout="layout">
 			<h3 class="tde">
 				<span class="null">{{camera.name}}</span>
 			</h3>
 			<div class="sub-cat" v-if="totalCams < 5">
-
+				{{camera.role}}
 			</div>
 		</div>
 
 		<div class="top"></div>
 		<div class="right"></div>
-
-
 	</div>
 </template>
 
@@ -44,6 +42,9 @@
 				type: String
 			},
 			bgColor: {
+				type: String
+			},
+			layout: {
 				type: String
 			},
 			camera: {
@@ -124,6 +125,29 @@
 			margin-left: 100px;
 			font-size: 1.3em;
 		}
+
+		&.small,
+		&[layout="presentation"]{
+			background: none;
+			h3.tde {
+				&:after {
+					border-top: 30px solid;
+				}
+				span {
+					padding: 5px 10px 5px 10px;
+				}
+				.sub-cat{
+					display: none;
+				}
+			}
+		}
+		&.small[layout="presentation"]{
+			.sub-cat{
+				display: none;
+			}
+		}
+
+
 	}
 
 

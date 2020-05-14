@@ -9222,8 +9222,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -9249,6 +9247,9 @@ var _default = {
       type: String
     },
     bgColor: {
+      type: String
+    },
+    layout: {
       type: String
     },
     camera: {
@@ -9296,15 +9297,29 @@ exports.default = _default;
     [
       _vm._v("\n\t" + _vm._s(_vm.title) + "\n\n\t"),
       _vm.camera && _vm.camera.name
-        ? _c("div", { staticClass: "lower-third" }, [
-            _c("h3", { staticClass: "tde" }, [
-              _c("span", { staticClass: "null" }, [
-                _vm._v(_vm._s(_vm.camera.name))
-              ])
-            ]),
-            _vm._v(" "),
-            _vm.totalCams < 5 ? _c("div", { staticClass: "sub-cat" }) : _vm._e()
-          ])
+        ? _c(
+            "div",
+            {
+              staticClass: "lower-third",
+              class: {
+                small: _vm.totalCams > 4 || _vm.layout === "presentation"
+              },
+              attrs: { layout: _vm.layout }
+            },
+            [
+              _c("h3", { staticClass: "tde" }, [
+                _c("span", { staticClass: "null" }, [
+                  _vm._v(_vm._s(_vm.camera.name))
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.totalCams < 5
+                ? _c("div", { staticClass: "sub-cat" }, [
+                    _vm._v("\n\t\t\t" + _vm._s(_vm.camera.role) + "\n\t\t")
+                  ])
+                : _vm._e()
+            ]
+          )
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "top" }),
@@ -9374,10 +9389,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
-      layout: 'guests',
       bgColor: null
     };
   },
@@ -9392,6 +9407,9 @@ var _default = {
       type: Array
     },
     camColor: {
+      type: String
+    },
+    layout: {
       type: String
     }
   }
@@ -9411,7 +9429,11 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "grid", class: "count-" + _vm.camCount },
+    {
+      staticClass: "grid",
+      class: "count-" + _vm.camCount,
+      attrs: { layout: _vm.layout }
+    },
     [
       _vm._l(_vm.cams, function(cam, index) {
         return _c("cam-ctrl", {
@@ -9420,7 +9442,8 @@ exports.default = _default;
             camera: cam,
             totalCams: _vm.camCount,
             title: "cam" + (index + 1),
-            bgColor: _vm.camColor
+            bgColor: _vm.camColor,
+            layout: _vm.layout
           }
         })
       }),
@@ -9512,6 +9535,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -9531,7 +9556,8 @@ var _default = {
       cams: [],
       theme: '',
       camColor: 'transparent',
-      displayCamColor: 'false'
+      displayCamColor: 'false',
+      hostCam: {}
     };
   },
   components: {
@@ -9555,6 +9581,10 @@ var _default = {
         _this.title = newValue.name;
         _this.hashtag = newValue.hashtag;
         _this.footer = newValue.subtitle;
+        _this.hostCam = {
+          name: newValue.host,
+          role: newValue.hostTitle
+        };
       }
     });
     this.guestReplicant.on('change', function (newValue, oldValue) {
@@ -9619,7 +9649,8 @@ exports.default = _default;
     {
       staticClass: "grid-container guest-count-4",
       class: "theme-" + _vm.theme,
-      style: _vm.winStyle
+      style: _vm.winStyle,
+      attrs: { layout: _vm.layout }
     },
     [
       _c("header-ctrl", {
@@ -9648,7 +9679,14 @@ exports.default = _default;
           _vm._v(" "),
           _c(
             "cam-ctrl",
-            { staticClass: "cam-host", attrs: { bgColor: _vm.camColor } },
+            {
+              staticClass: "cam-host",
+              attrs: {
+                bgColor: _vm.camColor,
+                camera: _vm.hostCam,
+                "total-cams": 1
+              }
+            },
             [_vm._v("host")]
           )
         ],
@@ -67482,7 +67520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43393" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40973" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,11 +1,12 @@
 <template>
-	<div class="grid" :class="'count-'+camCount">
+	<div class="grid" :class="'count-'+camCount" :layout="layout">
 		<cam-ctrl v-for="(cam, index) in cams"
 				  	:class="'guest'+(index+1)"
 				  	:camera="cam"
 				  	:totalCams="camCount"
 				  	:title="'cam'+(index+1)"
 				  	:bgColor="camColor"
+				  	:layout="layout"
 		></cam-ctrl>
 		<cam-ctrl class="presentation-frame"
 				  title="présentation"
@@ -20,7 +21,6 @@
 	export default {
 		data() {
 			return {
-				layout: 'guests',
 				bgColor: null
 			};
 		},
@@ -29,14 +29,18 @@
 		},
 		props: {
 			camCount: {
-				type: Number,
+				type: Number
 			},
 			cams:{
 				type: Array
 			},
 			camColor: {
 				type: String
+			},
+			layout: {
+				type: String
 			}
+
 		}
 	};
 </script>
@@ -135,9 +139,28 @@
 		}
 	}
 
+	[layout="intro"] {
+		.cam-content,
+		.presentation-frame{
+			display: none;
+		}
+	}
+
+
+
+
 	[layout="presentation"] {
 		.presentation-frame{
 			display: inherit;
+		}
+		&.count-2 {
+			grid-template-columns: 20% 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			grid-template-areas:
+				"g1 pres pres"
+				"g2 pres pres"
+				". pres pres";
+			padding: 0;
 		}
 		&.count-3 {
 			grid-template-columns: 20% 1fr 1fr;
@@ -176,6 +199,25 @@
 				"g2 pres pres pres pres"
 				"g3 pres pres pres pres"
 				". g4 g5 g6 .";
+		}
+
+		&.count-7 {
+			grid-template-columns: 20% 20% 20% 20% 1fr;
+			grid-template-rows: 1fr 1fr 1fr 1fr;
+			grid-template-areas:
+				"g1 pres pres pres pres"
+				"g2 pres pres pres pres"
+				"g3 pres pres pres pres"
+				"g4 g5 g6 g7 .";
+		}
+		&.count-8 {
+			grid-template-columns: 20% 20% 20% 20% 1fr;
+			grid-template-rows: 1fr 1fr 1fr 1fr;
+			grid-template-areas:
+				"g1 pres pres pres pres"
+				"g2 pres pres pres pres"
+				"g3 pres pres pres pres"
+				"g4 g5 g6 g7 g8";
 		}
 
 

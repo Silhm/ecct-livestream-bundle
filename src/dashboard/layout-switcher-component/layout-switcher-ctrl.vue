@@ -30,6 +30,7 @@
 		data() {
 			return {
 				options: [
+					{ text: 'Layout intro', value: 'intro' },
 					{ text: 'Layout invités', value: 'guests' },
 					{ text: 'Layout présentation', value: 'presentation' },
 					{ text: 'Layout vide', value: 'empty' }

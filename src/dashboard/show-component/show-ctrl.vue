@@ -42,6 +42,32 @@
 				></b-form-input>
 			</b-form-group>
 
+			<b-form-group
+				id="input-group-3"
+				label="Présentateur"
+				label-for="hostInput"
+			>
+				<b-form-input
+					id="hostInput"
+					type="text"
+					v-model="host"
+					placeholder="Enter host name"
+				></b-form-input>
+			</b-form-group>
+
+			<b-form-group
+				id="input-group-5"
+				label="Titre Présentateur"
+				label-for="hostTitleInput"
+			>
+				<b-form-input
+					id="hostTitleInput"
+					type="text"
+					v-model="hostTitle"
+					placeholder="Enter host title"
+				></b-form-input>
+			</b-form-group>
+
 			<b-button @click="submit" variant="success">Valider</b-button>
 		</b-form>
 	</b-container>
@@ -55,6 +81,8 @@
 				name: 'En chaussettes chez toi',
 				hashtag: '#restezchezvous',
 				subtitle: '',
+				host: '',
+				hostTitle: '',
 				date: new Date().toISOString().substr(0, 10),
 				valid: false,
 				required: value => !!value || 'Required.',
@@ -70,7 +98,9 @@
 					name: this.name,
 					subtitle: this.subtitle,
 					date: this.date,
-					hashtag: this.hashtag
+					hashtag: this.hashtag,
+					host: this.host,
+					hostTitle: this.hostTitle
 				}
 				console.log("info sent!", this.replicant);
 			},

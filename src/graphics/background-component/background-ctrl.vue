@@ -1,5 +1,5 @@
 <template>
-	<div class="grid-container guest-count-4" :class="'theme-'+theme" :style="winStyle">
+	<div class="grid-container guest-count-4" :class="'theme-'+theme" :style="winStyle" :layout="layout">
 		<header-ctrl
 			:title="title"
 			:hashtag="hashtag"
@@ -17,6 +17,8 @@
 			></chat-ctrl>
 			<cam-ctrl class="cam-host"
 					  :bgColor="camColor"
+					  :camera="hostCam"
+					  :total-cams="1"
 			>host</cam-ctrl>
 		</aside>
 
@@ -51,7 +53,8 @@
 				cams: [],
 				theme: '',
 				camColor: 'transparent',
-				displayCamColor: 'false'
+				displayCamColor: 'false',
+				hostCam: {},
 			};
 		},
 		components: {
@@ -73,6 +76,9 @@
 					this.title = newValue.name;
 					this.hashtag = newValue.hashtag;
 					this.footer = newValue.subtitle;
+					this.hostCam = { name: newValue.host,
+								  role: newValue.hostTitle
+					};
 				}
 			});
 			this.guestReplicant.on('change', (newValue, oldValue) => {
@@ -168,6 +174,21 @@
 		margin: 0;
 		letter-spacing: 6px;
 	}
+
+	.grid-container[layout="intro"]{
+		.chat-content {
+			display: none;
+		}
+		.cam-host{
+			position: fixed;
+			left: 4em;
+			right: 4em;
+			bottom: 4em;
+			top: 6em;
+		}
+	}
+
+
 
 	/* themes */
 	.theme-purple{

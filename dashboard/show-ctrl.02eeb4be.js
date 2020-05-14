@@ -8940,12 +8940,40 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
       name: 'En chaussettes chez toi',
       hashtag: '#restezchezvous',
       subtitle: '',
+      host: '',
+      hostTitle: '',
       date: new Date().toISOString().substr(0, 10),
       valid: false,
       required: function required(value) {
@@ -8963,7 +8991,9 @@ var _default = {
         name: this.name,
         subtitle: this.subtitle,
         date: this.date,
-        hashtag: this.hashtag
+        hashtag: this.hashtag,
+        host: this.host,
+        hostTitle: this.hostTitle
       };
       console.log("info sent!", this.replicant);
     }
@@ -9069,6 +9099,62 @@ exports.default = _default;
                     _vm.hashtag = $$v
                   },
                   expression: "hashtag"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "input-group-3",
+                label: "Présentateur",
+                "label-for": "hostInput"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: {
+                  id: "hostInput",
+                  type: "text",
+                  placeholder: "Enter host name"
+                },
+                model: {
+                  value: _vm.host,
+                  callback: function($$v) {
+                    _vm.host = $$v
+                  },
+                  expression: "host"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                id: "input-group-5",
+                label: "Titre Présentateur",
+                "label-for": "hostTitleInput"
+              }
+            },
+            [
+              _c("b-form-input", {
+                attrs: {
+                  id: "hostTitleInput",
+                  type: "text",
+                  placeholder: "Enter host title"
+                },
+                model: {
+                  value: _vm.hostTitle,
+                  callback: function($$v) {
+                    _vm.hostTitle = $$v
+                  },
+                  expression: "hostTitle"
                 }
               })
             ],
@@ -57488,7 +57574,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37157" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32965" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -8922,6 +8922,9 @@ var _default = {
   data: function data() {
     return {
       options: [{
+        text: 'Layout intro',
+        value: 'intro'
+      }, {
         text: 'Layout invités',
         value: 'guests'
       }, {
@@ -57448,7 +57451,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37157" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32965" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

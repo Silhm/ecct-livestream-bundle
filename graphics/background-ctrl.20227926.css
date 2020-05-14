@@ -90,6 +90,21 @@
   margin-left: 100px;
   font-size: 1.3em;
 }
+.lower-third.small[data-v-11477b], .lower-third[layout=presentation][data-v-11477b] {
+  background: none;
+}
+.lower-third.small h3.tde[data-v-11477b]:after, .lower-third[layout=presentation] h3.tde[data-v-11477b]:after {
+  border-top: 30px solid;
+}
+.lower-third.small h3.tde span[data-v-11477b], .lower-third[layout=presentation] h3.tde span[data-v-11477b] {
+  padding: 5px 10px 5px 10px;
+}
+.lower-third.small h3.tde .sub-cat[data-v-11477b], .lower-third[layout=presentation] h3.tde .sub-cat[data-v-11477b] {
+  display: none;
+}
+.lower-third.small[layout=presentation] .sub-cat[data-v-11477b] {
+  display: none;
+}
 .guest1[data-v-305dad] {
   grid-area: g1;
 }
@@ -170,8 +185,18 @@
 [layout=empty] .presentation-frame[data-v-305dad] {
   display: none;
 }
+[layout=intro] .cam-content[data-v-305dad],
+[layout=intro] .presentation-frame[data-v-305dad] {
+  display: none;
+}
 [layout=presentation] .presentation-frame[data-v-305dad] {
   display: inherit;
+}
+[layout=presentation].count-2[data-v-305dad] {
+  grid-template-columns: 20% 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "g1 pres pres" "g2 pres pres" ". pres pres";
+  padding: 0;
 }
 [layout=presentation].count-3[data-v-305dad] {
   grid-template-columns: 20% 1fr 1fr;
@@ -193,6 +218,16 @@
   grid-template-columns: 20% 20% 20% 20% 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "g1 pres pres pres pres" "g2 pres pres pres pres" "g3 pres pres pres pres" ". g4 g5 g6 .";
+}
+[layout=presentation].count-7[data-v-305dad] {
+  grid-template-columns: 20% 20% 20% 20% 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "g1 pres pres pres pres" "g2 pres pres pres pres" "g3 pres pres pres pres" "g4 g5 g6 g7 .";
+}
+[layout=presentation].count-8[data-v-305dad] {
+  grid-template-columns: 20% 20% 20% 20% 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "g1 pres pres pres pres" "g2 pres pres pres pres" "g3 pres pres pres pres" "g4 g5 g6 g7 g8";
 }
 [data-v-dd1297]:root {
   --border-color1: #2ecc71;
@@ -312,6 +347,16 @@ aside[data-v-dd1297] {
   font-size: 14px;
   margin: 0;
   letter-spacing: 6px;
+}
+.grid-container[layout=intro] .chat-content[data-v-dd1297] {
+  display: none;
+}
+.grid-container[layout=intro] .cam-host[data-v-dd1297] {
+  position: fixed;
+  left: 4em;
+  right: 4em;
+  bottom: 4em;
+  top: 6em;
 }
 
 /* themes */
