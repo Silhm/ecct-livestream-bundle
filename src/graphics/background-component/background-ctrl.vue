@@ -7,12 +7,15 @@
 			:logo2="logo2"
 			class="header"
 		></header-ctrl>
-		<layout-ctrl :camCount="camCount"
+
+
+		<layout-ctrl v-if="layout !== 'credits'"
+					 :camCount="camCount"
 					 :cams="cams"
 					 :camColor="camColor"
 					 :layout="layout"
 		></layout-ctrl>
-		<aside>
+		<aside v-if="layout !== 'credits'">
 			<chat-ctrl :color="camColor"
 			></chat-ctrl>
 			<cam-ctrl class="cam-host"
@@ -21,6 +24,8 @@
 					  :total-cams="1"
 			>host</cam-ctrl>
 		</aside>
+
+		<credits-ctrl v-if="layout === 'credits'"></credits-ctrl>
 
 		<footer-ctrl :text="footer" class="footer"></footer-ctrl>
 	</div>
@@ -32,6 +37,7 @@
 	import ChatCtrl from './chat-ctrl.vue';
 	import CamCtrl from './cam-ctrl.vue';
 	import LayoutCtrl from './layout-ctrl.vue';
+	import CreditsCtrl from './credits-ctrl.vue';
 
 
 	export default {
@@ -62,7 +68,8 @@
 			FooterCtrl,
 			ChatCtrl,
 			LayoutCtrl,
-			CamCtrl
+			CamCtrl,
+			CreditsCtrl
 		},
 		created() {
 			this.showReplicant = nodecg.Replicant('show','ECCT');
@@ -186,6 +193,11 @@
 			bottom: 4em;
 			top: 6em;
 		}
+	}
+	.grid-container[layout="credits"]{
+		grid-template-areas: "header header header header"
+		"main main main main"
+		"footer footer footer footer";
 	}
 
 

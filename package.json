@@ -6,7 +6,7 @@
   "author": {
     "name": "Simon",
     "email": "mail@simon-florentin.fr",
-    "url": ""
+    "url": "http://simon-florentin.fr"
   },
   "scripts": {
     "start": "npm run bundle",
@@ -31,9 +31,17 @@
         "name": "show",
         "title": "Emission",
         "workspace": "ECCT configuration",
-        "width": 10,
+        "width": 3,
         "file": "show-ctrl.html",
         "headerColor": "#964994"
+      },
+      {
+        "name": "credits",
+        "title": "Crédits",
+        "workspace": "ECCT configuration",
+        "width": 6,
+        "file": "credits-ctrl.html",
+        "headerColor": "#c119cc"
       },
       {
         "name": "theme",
@@ -80,12 +88,22 @@
       {
         "name": "logo",
         "title": "Logo",
-        "allowedTypes": ["jpg", "jpeg", "gif", "png"]
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "gif",
+          "png"
+        ]
       },
       {
         "name": "background",
         "title": "Background",
-        "allowedTypes": ["jpg", "jpeg", "gif", "png"]
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "gif",
+          "png"
+        ]
       }
     ]
   },

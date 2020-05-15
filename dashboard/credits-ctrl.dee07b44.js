@@ -8884,7 +8884,7 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"guest-component/guest-ctrl.vue":[function(require,module,exports) {
+},{}],"credits-component/credits-ctrl.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8955,10 +8955,22 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
-      guestForm: {
+      creditForm: {
         name: '',
         role: '',
         website: '',
@@ -8969,7 +8981,8 @@ var _default = {
         }
       },
       validateVisible: true,
-      guests: [],
+      text: '',
+      credits: [],
       fields: [{
         key: 'name',
         label: 'Nom',
@@ -8992,36 +9005,39 @@ var _default = {
     };
   },
   created: function created() {
-    this.replicant = nodecg.Replicant('guests', 'ECCT');
+    this.replicant = nodecg.Replicant('credits', 'ECCT');
     this.id = 0;
   },
   methods: {
     submit: function submit() {
-      this.replicant.value = this.guests;
+      this.replicant.value = {
+        list: this.credits,
+        text: this.text
+      };
       this.validateVisible = false;
-      console.log("guest list sent!", this.guests);
+      console.log("credits list sent!", this.credits);
     },
-    addGuest: function addGuest() {
+    addCredit: function addCredit() {
       if (!this.validateVisible) {
         this.validateVisible = true;
       }
 
-      this.guests.push({
+      this.credits.push({
         id: this.id,
-        name: this.guestForm.name,
-        role: this.guestForm.role,
-        website: this.guestForm.website
+        name: this.creditForm.name,
+        role: this.creditForm.role,
+        website: this.creditForm.website
       });
       this.id++;
-      Object.keys(this.guestForm).forEach(function (key, index) {
-        this.guestForm[key] = '';
+      Object.keys(this.creditForm).forEach(function (key, index) {
+        this.creditForm[key] = '';
       }.bind(this));
     },
-    removeGuest: function removeGuest(row) {
-      var remove = this.guests.filter(function (g) {
+    removeCredit: function removeCredit(row) {
+      var remove = this.credits.filter(function (g) {
         return g.id === row.item.id;
       })[0];
-      this.guests.splice(this.guests.indexOf(remove), 1);
+      this.credits.splice(this.credits.indexOf(remove), 1);
 
       if (!this.validateVisible) {
         this.validateVisible = true;
@@ -9030,14 +9046,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a4e002 = exports.default || module.exports;
+        var $a2fb54 = exports.default || module.exports;
       
-      if (typeof $a4e002 === 'function') {
-        $a4e002 = $a4e002.options;
+      if (typeof $a2fb54 === 'function') {
+        $a2fb54 = $a2fb54.options;
       }
     
         /* template */
-        Object.assign($a4e002, (function () {
+        Object.assign($a2fb54, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9066,7 +9082,7 @@ exports.default = _default;
                       ) {
                         return null
                       }
-                      return _vm.addGuest($event)
+                      return _vm.addCredit($event)
                     }
                   }
                 },
@@ -9079,11 +9095,11 @@ exports.default = _default;
                       placeholder: "Nom"
                     },
                     model: {
-                      value: _vm.guestForm.name,
+                      value: _vm.creditForm.name,
                       callback: function($$v) {
-                        _vm.$set(_vm.guestForm, "name", $$v)
+                        _vm.$set(_vm.creditForm, "name", $$v)
                       },
-                      expression: "guestForm.name"
+                      expression: "creditForm.name"
                     }
                   }),
                   _vm._v(" "),
@@ -9095,11 +9111,11 @@ exports.default = _default;
                       placeholder: "Role / titre"
                     },
                     model: {
-                      value: _vm.guestForm.role,
+                      value: _vm.creditForm.role,
                       callback: function($$v) {
-                        _vm.$set(_vm.guestForm, "role", $$v)
+                        _vm.$set(_vm.creditForm, "role", $$v)
                       },
-                      expression: "guestForm.role"
+                      expression: "creditForm.role"
                     }
                   }),
                   _vm._v(" "),
@@ -9111,17 +9127,20 @@ exports.default = _default;
                       placeholder: "Page perso"
                     },
                     model: {
-                      value: _vm.guestForm.website,
+                      value: _vm.creditForm.website,
                       callback: function($$v) {
-                        _vm.$set(_vm.guestForm, "website", $$v)
+                        _vm.$set(_vm.creditForm, "website", $$v)
                       },
-                      expression: "guestForm.website"
+                      expression: "creditForm.website"
                     }
                   }),
                   _vm._v(" "),
                   _c(
                     "b-button",
-                    { attrs: { variant: "info" }, on: { click: _vm.addGuest } },
+                    {
+                      attrs: { variant: "info" },
+                      on: { click: _vm.addCredit }
+                    },
                     [_c("b-icon-person"), _vm._v(" "), _c("b-icon-plus")],
                     1
                   )
@@ -9145,7 +9164,7 @@ exports.default = _default;
                 attrs: {
                   striped: "",
                   hover: "",
-                  items: _vm.guests,
+                  items: _vm.credits,
                   fields: _vm.fields
                 },
                 scopedSlots: _vm._u([
@@ -9164,7 +9183,7 @@ exports.default = _default;
                             },
                             on: {
                               click: function($event) {
-                                return _vm.removeGuest(row)
+                                return _vm.removeCredit(row)
                               }
                             }
                           },
@@ -9182,6 +9201,40 @@ exports.default = _default;
         ],
         1
       ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        [
+          _c(
+            "b-col",
+            [
+              _c("b-form-textarea", {
+                attrs: {
+                  placeholder: "Texte libre",
+                  rows: "3",
+                  "max-rows": "8"
+                },
+                on: {
+                  input: function($event) {
+                    _vm.validateVisible = true
+                  }
+                },
+                model: {
+                  value: _vm.text,
+                  callback: function($$v) {
+                    _vm.text = $$v
+                  },
+                  expression: "text"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("hr"),
       _vm._v(" "),
       _c(
         "transition",
@@ -9213,7 +9266,7 @@ exports.default = _default;
                         variant: "success"
                       }
                     },
-                    [_vm._v("\n\t\t\t\tInvités validés!\n\t\t\t")]
+                    [_vm._v("\n\t\t\t\tCrédits validés!\n\t\t\t")]
                   )
                 : _vm._e()
             ],
@@ -9233,7 +9286,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a4e002",
+            _scopeId: "data-v-a2fb54",
             functional: undefined
           };
         })());
@@ -9246,9 +9299,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a4e002', $a4e002);
+            api.createRecord('$a2fb54', $a2fb54);
           } else {
-            api.reload('$a4e002', $a4e002);
+            api.reload('$a2fb54', $a2fb54);
           }
         }
 
@@ -57573,12 +57626,12 @@ exports.BootstrapVue = BootstrapVue;
 // Default export is the BootstrapVue plugin
 var _default = BootstrapVue;
 exports.default = _default;
-},{"./utils/plugins":"../../node_modules/bootstrap-vue/esm/utils/plugins.js","./components":"../../node_modules/bootstrap-vue/esm/components/index.js","./directives":"../../node_modules/bootstrap-vue/esm/directives/index.js","./bv-config":"../../node_modules/bootstrap-vue/esm/bv-config.js","./components/modal/helpers/bv-modal":"../../node_modules/bootstrap-vue/esm/components/modal/helpers/bv-modal.js","./components/toast/helpers/bv-toast":"../../node_modules/bootstrap-vue/esm/components/toast/helpers/bv-toast.js","./icons/plugin":"../../node_modules/bootstrap-vue/esm/icons/plugin.js","./icons/icon":"../../node_modules/bootstrap-vue/esm/icons/icon.js","./icons/iconstack":"../../node_modules/bootstrap-vue/esm/icons/iconstack.js","./icons/icons":"../../node_modules/bootstrap-vue/esm/icons/icons.js","./components/alert":"../../node_modules/bootstrap-vue/esm/components/alert/index.js","./components/alert/alert":"../../node_modules/bootstrap-vue/esm/components/alert/alert.js","./components/aspect":"../../node_modules/bootstrap-vue/esm/components/aspect/index.js","./components/aspect/aspect":"../../node_modules/bootstrap-vue/esm/components/aspect/aspect.js","./components/avatar":"../../node_modules/bootstrap-vue/esm/components/avatar/index.js","./components/avatar/avatar":"../../node_modules/bootstrap-vue/esm/components/avatar/avatar.js","./components/badge":"../../node_modules/bootstrap-vue/esm/components/badge/index.js","./components/badge/badge":"../../node_modules/bootstrap-vue/esm/components/badge/badge.js","./components/breadcrumb":"../../node_modules/bootstrap-vue/esm/components/breadcrumb/index.js","./components/breadcrumb/breadcrumb":"../../node_modules/bootstrap-vue/esm/components/breadcrumb/breadcrumb.js","./components/breadcrumb/breadcrumb-item":"../../node_modules/bootstrap-vue/esm/components/breadcrumb/breadcrumb-item.js","./components/button":"../../node_modules/bootstrap-vue/esm/components/button/index.js","./components/button/button":"../../node_modules/bootstrap-vue/esm/components/button/button.js","./components/button/button-close":"../../node_modules/bootstrap-vue/esm/components/button/button-close.js","./components/button-group":"../../node_modules/bootstrap-vue/esm/components/button-group/index.js","./components/button-group/button-group":"../../node_modules/bootstrap-vue/esm/components/button-group/button-group.js","./components/button-toolbar":"../../node_modules/bootstrap-vue/esm/components/button-toolbar/index.js","./components/button-toolbar/button-toolbar":"../../node_modules/bootstrap-vue/esm/components/button-toolbar/button-toolbar.js","./components/calendar":"../../node_modules/bootstrap-vue/esm/components/calendar/index.js","./components/calendar/calendar":"../../node_modules/bootstrap-vue/esm/components/calendar/calendar.js","./components/card":"../../node_modules/bootstrap-vue/esm/components/card/index.js","./components/card/card":"../../node_modules/bootstrap-vue/esm/components/card/card.js","./components/card/card-body":"../../node_modules/bootstrap-vue/esm/components/card/card-body.js","./components/card/card-footer":"../../node_modules/bootstrap-vue/esm/components/card/card-footer.js","./components/card/card-group":"../../node_modules/bootstrap-vue/esm/components/card/card-group.js","./components/card/card-header":"../../node_modules/bootstrap-vue/esm/components/card/card-header.js","./components/card/card-img":"../../node_modules/bootstrap-vue/esm/components/card/card-img.js","./components/card/card-img-lazy":"../../node_modules/bootstrap-vue/esm/components/card/card-img-lazy.js","./components/card/card-sub-title":"../../node_modules/bootstrap-vue/esm/components/card/card-sub-title.js","./components/card/card-text":"../../node_modules/bootstrap-vue/esm/components/card/card-text.js","./components/card/card-title":"../../node_modules/bootstrap-vue/esm/components/card/card-title.js","./components/carousel":"../../node_modules/bootstrap-vue/esm/components/carousel/index.js","./components/carousel/carousel":"../../node_modules/bootstrap-vue/esm/components/carousel/carousel.js","./components/carousel/carousel-slide":"../../node_modules/bootstrap-vue/esm/components/carousel/carousel-slide.js","./components/collapse":"../../node_modules/bootstrap-vue/esm/components/collapse/index.js","./components/collapse/collapse":"../../node_modules/bootstrap-vue/esm/components/collapse/collapse.js","./components/dropdown":"../../node_modules/bootstrap-vue/esm/components/dropdown/index.js","./components/dropdown/dropdown":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown.js","./components/dropdown/dropdown-item":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-item.js","./components/dropdown/dropdown-item-button":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-item-button.js","./components/dropdown/dropdown-divider":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-divider.js","./components/dropdown/dropdown-form":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-form.js","./components/dropdown/dropdown-group":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-group.js","./components/dropdown/dropdown-header":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-header.js","./components/dropdown/dropdown-text":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-text.js","./components/embed":"../../node_modules/bootstrap-vue/esm/components/embed/index.js","./components/embed/embed":"../../node_modules/bootstrap-vue/esm/components/embed/embed.js","./components/form":"../../node_modules/bootstrap-vue/esm/components/form/index.js","./components/form/form":"../../node_modules/bootstrap-vue/esm/components/form/form.js","./components/form/form-datalist":"../../node_modules/bootstrap-vue/esm/components/form/form-datalist.js","./components/form/form-text":"../../node_modules/bootstrap-vue/esm/components/form/form-text.js","./components/form/form-invalid-feedback":"../../node_modules/bootstrap-vue/esm/components/form/form-invalid-feedback.js","./components/form/form-valid-feedback":"../../node_modules/bootstrap-vue/esm/components/form/form-valid-feedback.js","./components/form-checkbox":"../../node_modules/bootstrap-vue/esm/components/form-checkbox/index.js","./components/form-checkbox/form-checkbox":"../../node_modules/bootstrap-vue/esm/components/form-checkbox/form-checkbox.js","./components/form-checkbox/form-checkbox-group":"../../node_modules/bootstrap-vue/esm/components/form-checkbox/form-checkbox-group.js","./components/form-datepicker":"../../node_modules/bootstrap-vue/esm/components/form-datepicker/index.js","./components/form-datepicker/form-datepicker":"../../node_modules/bootstrap-vue/esm/components/form-datepicker/form-datepicker.js","./components/form-file":"../../node_modules/bootstrap-vue/esm/components/form-file/index.js","./components/form-file/form-file":"../../node_modules/bootstrap-vue/esm/components/form-file/form-file.js","./components/form-group":"../../node_modules/bootstrap-vue/esm/components/form-group/index.js","./components/form-group/form-group":"../../node_modules/bootstrap-vue/esm/components/form-group/form-group.js","./components/form-input":"../../node_modules/bootstrap-vue/esm/components/form-input/index.js","./components/form-input/form-input":"../../node_modules/bootstrap-vue/esm/components/form-input/form-input.js","./components/form-radio":"../../node_modules/bootstrap-vue/esm/components/form-radio/index.js","./components/form-radio/form-radio":"../../node_modules/bootstrap-vue/esm/components/form-radio/form-radio.js","./components/form-radio/form-radio-group":"../../node_modules/bootstrap-vue/esm/components/form-radio/form-radio-group.js","./components/form-rating":"../../node_modules/bootstrap-vue/esm/components/form-rating/index.js","./components/form-rating/form-rating":"../../node_modules/bootstrap-vue/esm/components/form-rating/form-rating.js","./components/form-tags":"../../node_modules/bootstrap-vue/esm/components/form-tags/index.js","./components/form-tags/form-tags":"../../node_modules/bootstrap-vue/esm/components/form-tags/form-tags.js","./components/form-tags/form-tag":"../../node_modules/bootstrap-vue/esm/components/form-tags/form-tag.js","./components/form-select":"../../node_modules/bootstrap-vue/esm/components/form-select/index.js","./components/form-select/form-select":"../../node_modules/bootstrap-vue/esm/components/form-select/form-select.js","./components/form-select/form-select-option":"../../node_modules/bootstrap-vue/esm/components/form-select/form-select-option.js","./components/form-select/form-select-option-group":"../../node_modules/bootstrap-vue/esm/components/form-select/form-select-option-group.js","./components/form-spinbutton":"../../node_modules/bootstrap-vue/esm/components/form-spinbutton/index.js","./components/form-spinbutton/form-spinbutton":"../../node_modules/bootstrap-vue/esm/components/form-spinbutton/form-spinbutton.js","./components/form-textarea":"../../node_modules/bootstrap-vue/esm/components/form-textarea/index.js","./components/form-textarea/form-textarea":"../../node_modules/bootstrap-vue/esm/components/form-textarea/form-textarea.js","./components/form-timepicker":"../../node_modules/bootstrap-vue/esm/components/form-timepicker/index.js","./components/form-timepicker/form-timepicker":"../../node_modules/bootstrap-vue/esm/components/form-timepicker/form-timepicker.js","./components/image":"../../node_modules/bootstrap-vue/esm/components/image/index.js","./components/image/img":"../../node_modules/bootstrap-vue/esm/components/image/img.js","./components/image/img-lazy":"../../node_modules/bootstrap-vue/esm/components/image/img-lazy.js","./components/input-group":"../../node_modules/bootstrap-vue/esm/components/input-group/index.js","./components/input-group/input-group":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group.js","./components/input-group/input-group-addon":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-addon.js","./components/input-group/input-group-append":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-append.js","./components/input-group/input-group-prepend":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-prepend.js","./components/input-group/input-group-text":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-text.js","./components/jumbotron":"../../node_modules/bootstrap-vue/esm/components/jumbotron/index.js","./components/jumbotron/jumbotron":"../../node_modules/bootstrap-vue/esm/components/jumbotron/jumbotron.js","./components/layout":"../../node_modules/bootstrap-vue/esm/components/layout/index.js","./components/layout/container":"../../node_modules/bootstrap-vue/esm/components/layout/container.js","./components/layout/row":"../../node_modules/bootstrap-vue/esm/components/layout/row.js","./components/layout/col":"../../node_modules/bootstrap-vue/esm/components/layout/col.js","./components/layout/form-row":"../../node_modules/bootstrap-vue/esm/components/layout/form-row.js","./components/link":"../../node_modules/bootstrap-vue/esm/components/link/index.js","./components/link/link":"../../node_modules/bootstrap-vue/esm/components/link/link.js","./components/list-group":"../../node_modules/bootstrap-vue/esm/components/list-group/index.js","./components/list-group/list-group":"../../node_modules/bootstrap-vue/esm/components/list-group/list-group.js","./components/list-group/list-group-item":"../../node_modules/bootstrap-vue/esm/components/list-group/list-group-item.js","./components/media":"../../node_modules/bootstrap-vue/esm/components/media/index.js","./components/media/media":"../../node_modules/bootstrap-vue/esm/components/media/media.js","./components/media/media-aside":"../../node_modules/bootstrap-vue/esm/components/media/media-aside.js","./components/media/media-body":"../../node_modules/bootstrap-vue/esm/components/media/media-body.js","./components/modal":"../../node_modules/bootstrap-vue/esm/components/modal/index.js","./components/modal/modal":"../../node_modules/bootstrap-vue/esm/components/modal/modal.js","./components/nav":"../../node_modules/bootstrap-vue/esm/components/nav/index.js","./components/nav/nav":"../../node_modules/bootstrap-vue/esm/components/nav/nav.js","./components/nav/nav-form":"../../node_modules/bootstrap-vue/esm/components/nav/nav-form.js","./components/nav/nav-item":"../../node_modules/bootstrap-vue/esm/components/nav/nav-item.js","./components/nav/nav-item-dropdown":"../../node_modules/bootstrap-vue/esm/components/nav/nav-item-dropdown.js","./components/nav/nav-text":"../../node_modules/bootstrap-vue/esm/components/nav/nav-text.js","./components/navbar":"../../node_modules/bootstrap-vue/esm/components/navbar/index.js","./components/navbar/navbar":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar.js","./components/navbar/navbar-brand":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar-brand.js","./components/navbar/navbar-nav":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar-nav.js","./components/navbar/navbar-toggle":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar-toggle.js","./components/overlay":"../../node_modules/bootstrap-vue/esm/components/overlay/index.js","./components/overlay/overlay":"../../node_modules/bootstrap-vue/esm/components/overlay/overlay.js","./components/pagination":"../../node_modules/bootstrap-vue/esm/components/pagination/index.js","./components/pagination/pagination":"../../node_modules/bootstrap-vue/esm/components/pagination/pagination.js","./components/pagination-nav":"../../node_modules/bootstrap-vue/esm/components/pagination-nav/index.js","./components/pagination-nav/pagination-nav":"../../node_modules/bootstrap-vue/esm/components/pagination-nav/pagination-nav.js","./components/popover":"../../node_modules/bootstrap-vue/esm/components/popover/index.js","./components/popover/popover":"../../node_modules/bootstrap-vue/esm/components/popover/popover.js","./components/progress":"../../node_modules/bootstrap-vue/esm/components/progress/index.js","./components/progress/progress":"../../node_modules/bootstrap-vue/esm/components/progress/progress.js","./components/progress/progress-bar":"../../node_modules/bootstrap-vue/esm/components/progress/progress-bar.js","./components/sidebar":"../../node_modules/bootstrap-vue/esm/components/sidebar/index.js","./components/sidebar/sidebar":"../../node_modules/bootstrap-vue/esm/components/sidebar/sidebar.js","./components/spinner":"../../node_modules/bootstrap-vue/esm/components/spinner/index.js","./components/spinner/spinner":"../../node_modules/bootstrap-vue/esm/components/spinner/spinner.js","./components/table":"../../node_modules/bootstrap-vue/esm/components/table/index.js","./components/table/table":"../../node_modules/bootstrap-vue/esm/components/table/table.js","./components/table/table-lite":"../../node_modules/bootstrap-vue/esm/components/table/table-lite.js","./components/table/table-simple":"../../node_modules/bootstrap-vue/esm/components/table/table-simple.js","./components/table/tbody":"../../node_modules/bootstrap-vue/esm/components/table/tbody.js","./components/table/thead":"../../node_modules/bootstrap-vue/esm/components/table/thead.js","./components/table/tfoot":"../../node_modules/bootstrap-vue/esm/components/table/tfoot.js","./components/table/tr":"../../node_modules/bootstrap-vue/esm/components/table/tr.js","./components/table/th":"../../node_modules/bootstrap-vue/esm/components/table/th.js","./components/table/td":"../../node_modules/bootstrap-vue/esm/components/table/td.js","./components/tabs":"../../node_modules/bootstrap-vue/esm/components/tabs/index.js","./components/tabs/tabs":"../../node_modules/bootstrap-vue/esm/components/tabs/tabs.js","./components/tabs/tab":"../../node_modules/bootstrap-vue/esm/components/tabs/tab.js","./components/time":"../../node_modules/bootstrap-vue/esm/components/time/index.js","./components/time/time":"../../node_modules/bootstrap-vue/esm/components/time/time.js","./components/toast":"../../node_modules/bootstrap-vue/esm/components/toast/index.js","./components/toast/toast":"../../node_modules/bootstrap-vue/esm/components/toast/toast.js","./components/toast/toaster":"../../node_modules/bootstrap-vue/esm/components/toast/toaster.js","./components/tooltip":"../../node_modules/bootstrap-vue/esm/components/tooltip/index.js","./components/tooltip/tooltip":"../../node_modules/bootstrap-vue/esm/components/tooltip/tooltip.js","./directives/hover":"../../node_modules/bootstrap-vue/esm/directives/hover/index.js","./directives/hover/hover":"../../node_modules/bootstrap-vue/esm/directives/hover/hover.js","./directives/modal":"../../node_modules/bootstrap-vue/esm/directives/modal/index.js","./directives/modal/modal":"../../node_modules/bootstrap-vue/esm/directives/modal/modal.js","./directives/popover":"../../node_modules/bootstrap-vue/esm/directives/popover/index.js","./directives/popover/popover":"../../node_modules/bootstrap-vue/esm/directives/popover/popover.js","./directives/scrollspy":"../../node_modules/bootstrap-vue/esm/directives/scrollspy/index.js","./directives/scrollspy/scrollspy":"../../node_modules/bootstrap-vue/esm/directives/scrollspy/scrollspy.js","./directives/toggle":"../../node_modules/bootstrap-vue/esm/directives/toggle/index.js","./directives/toggle/toggle":"../../node_modules/bootstrap-vue/esm/directives/toggle/toggle.js","./directives/tooltip":"../../node_modules/bootstrap-vue/esm/directives/tooltip/index.js","./directives/tooltip/tooltip":"../../node_modules/bootstrap-vue/esm/directives/tooltip/tooltip.js","./directives/visible":"../../node_modules/bootstrap-vue/esm/directives/visible/index.js","./directives/visible/visible":"../../node_modules/bootstrap-vue/esm/directives/visible/visible.js"}],"guest-component/guest-ctrl.js":[function(require,module,exports) {
+},{"./utils/plugins":"../../node_modules/bootstrap-vue/esm/utils/plugins.js","./components":"../../node_modules/bootstrap-vue/esm/components/index.js","./directives":"../../node_modules/bootstrap-vue/esm/directives/index.js","./bv-config":"../../node_modules/bootstrap-vue/esm/bv-config.js","./components/modal/helpers/bv-modal":"../../node_modules/bootstrap-vue/esm/components/modal/helpers/bv-modal.js","./components/toast/helpers/bv-toast":"../../node_modules/bootstrap-vue/esm/components/toast/helpers/bv-toast.js","./icons/plugin":"../../node_modules/bootstrap-vue/esm/icons/plugin.js","./icons/icon":"../../node_modules/bootstrap-vue/esm/icons/icon.js","./icons/iconstack":"../../node_modules/bootstrap-vue/esm/icons/iconstack.js","./icons/icons":"../../node_modules/bootstrap-vue/esm/icons/icons.js","./components/alert":"../../node_modules/bootstrap-vue/esm/components/alert/index.js","./components/alert/alert":"../../node_modules/bootstrap-vue/esm/components/alert/alert.js","./components/aspect":"../../node_modules/bootstrap-vue/esm/components/aspect/index.js","./components/aspect/aspect":"../../node_modules/bootstrap-vue/esm/components/aspect/aspect.js","./components/avatar":"../../node_modules/bootstrap-vue/esm/components/avatar/index.js","./components/avatar/avatar":"../../node_modules/bootstrap-vue/esm/components/avatar/avatar.js","./components/badge":"../../node_modules/bootstrap-vue/esm/components/badge/index.js","./components/badge/badge":"../../node_modules/bootstrap-vue/esm/components/badge/badge.js","./components/breadcrumb":"../../node_modules/bootstrap-vue/esm/components/breadcrumb/index.js","./components/breadcrumb/breadcrumb":"../../node_modules/bootstrap-vue/esm/components/breadcrumb/breadcrumb.js","./components/breadcrumb/breadcrumb-item":"../../node_modules/bootstrap-vue/esm/components/breadcrumb/breadcrumb-item.js","./components/button":"../../node_modules/bootstrap-vue/esm/components/button/index.js","./components/button/button":"../../node_modules/bootstrap-vue/esm/components/button/button.js","./components/button/button-close":"../../node_modules/bootstrap-vue/esm/components/button/button-close.js","./components/button-group":"../../node_modules/bootstrap-vue/esm/components/button-group/index.js","./components/button-group/button-group":"../../node_modules/bootstrap-vue/esm/components/button-group/button-group.js","./components/button-toolbar":"../../node_modules/bootstrap-vue/esm/components/button-toolbar/index.js","./components/button-toolbar/button-toolbar":"../../node_modules/bootstrap-vue/esm/components/button-toolbar/button-toolbar.js","./components/calendar":"../../node_modules/bootstrap-vue/esm/components/calendar/index.js","./components/calendar/calendar":"../../node_modules/bootstrap-vue/esm/components/calendar/calendar.js","./components/card":"../../node_modules/bootstrap-vue/esm/components/card/index.js","./components/card/card":"../../node_modules/bootstrap-vue/esm/components/card/card.js","./components/card/card-body":"../../node_modules/bootstrap-vue/esm/components/card/card-body.js","./components/card/card-footer":"../../node_modules/bootstrap-vue/esm/components/card/card-footer.js","./components/card/card-group":"../../node_modules/bootstrap-vue/esm/components/card/card-group.js","./components/card/card-header":"../../node_modules/bootstrap-vue/esm/components/card/card-header.js","./components/card/card-img":"../../node_modules/bootstrap-vue/esm/components/card/card-img.js","./components/card/card-img-lazy":"../../node_modules/bootstrap-vue/esm/components/card/card-img-lazy.js","./components/card/card-sub-title":"../../node_modules/bootstrap-vue/esm/components/card/card-sub-title.js","./components/card/card-text":"../../node_modules/bootstrap-vue/esm/components/card/card-text.js","./components/card/card-title":"../../node_modules/bootstrap-vue/esm/components/card/card-title.js","./components/carousel":"../../node_modules/bootstrap-vue/esm/components/carousel/index.js","./components/carousel/carousel":"../../node_modules/bootstrap-vue/esm/components/carousel/carousel.js","./components/carousel/carousel-slide":"../../node_modules/bootstrap-vue/esm/components/carousel/carousel-slide.js","./components/collapse":"../../node_modules/bootstrap-vue/esm/components/collapse/index.js","./components/collapse/collapse":"../../node_modules/bootstrap-vue/esm/components/collapse/collapse.js","./components/dropdown":"../../node_modules/bootstrap-vue/esm/components/dropdown/index.js","./components/dropdown/dropdown":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown.js","./components/dropdown/dropdown-item":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-item.js","./components/dropdown/dropdown-item-button":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-item-button.js","./components/dropdown/dropdown-divider":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-divider.js","./components/dropdown/dropdown-form":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-form.js","./components/dropdown/dropdown-group":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-group.js","./components/dropdown/dropdown-header":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-header.js","./components/dropdown/dropdown-text":"../../node_modules/bootstrap-vue/esm/components/dropdown/dropdown-text.js","./components/embed":"../../node_modules/bootstrap-vue/esm/components/embed/index.js","./components/embed/embed":"../../node_modules/bootstrap-vue/esm/components/embed/embed.js","./components/form":"../../node_modules/bootstrap-vue/esm/components/form/index.js","./components/form/form":"../../node_modules/bootstrap-vue/esm/components/form/form.js","./components/form/form-datalist":"../../node_modules/bootstrap-vue/esm/components/form/form-datalist.js","./components/form/form-text":"../../node_modules/bootstrap-vue/esm/components/form/form-text.js","./components/form/form-invalid-feedback":"../../node_modules/bootstrap-vue/esm/components/form/form-invalid-feedback.js","./components/form/form-valid-feedback":"../../node_modules/bootstrap-vue/esm/components/form/form-valid-feedback.js","./components/form-checkbox":"../../node_modules/bootstrap-vue/esm/components/form-checkbox/index.js","./components/form-checkbox/form-checkbox":"../../node_modules/bootstrap-vue/esm/components/form-checkbox/form-checkbox.js","./components/form-checkbox/form-checkbox-group":"../../node_modules/bootstrap-vue/esm/components/form-checkbox/form-checkbox-group.js","./components/form-datepicker":"../../node_modules/bootstrap-vue/esm/components/form-datepicker/index.js","./components/form-datepicker/form-datepicker":"../../node_modules/bootstrap-vue/esm/components/form-datepicker/form-datepicker.js","./components/form-file":"../../node_modules/bootstrap-vue/esm/components/form-file/index.js","./components/form-file/form-file":"../../node_modules/bootstrap-vue/esm/components/form-file/form-file.js","./components/form-group":"../../node_modules/bootstrap-vue/esm/components/form-group/index.js","./components/form-group/form-group":"../../node_modules/bootstrap-vue/esm/components/form-group/form-group.js","./components/form-input":"../../node_modules/bootstrap-vue/esm/components/form-input/index.js","./components/form-input/form-input":"../../node_modules/bootstrap-vue/esm/components/form-input/form-input.js","./components/form-radio":"../../node_modules/bootstrap-vue/esm/components/form-radio/index.js","./components/form-radio/form-radio":"../../node_modules/bootstrap-vue/esm/components/form-radio/form-radio.js","./components/form-radio/form-radio-group":"../../node_modules/bootstrap-vue/esm/components/form-radio/form-radio-group.js","./components/form-rating":"../../node_modules/bootstrap-vue/esm/components/form-rating/index.js","./components/form-rating/form-rating":"../../node_modules/bootstrap-vue/esm/components/form-rating/form-rating.js","./components/form-tags":"../../node_modules/bootstrap-vue/esm/components/form-tags/index.js","./components/form-tags/form-tags":"../../node_modules/bootstrap-vue/esm/components/form-tags/form-tags.js","./components/form-tags/form-tag":"../../node_modules/bootstrap-vue/esm/components/form-tags/form-tag.js","./components/form-select":"../../node_modules/bootstrap-vue/esm/components/form-select/index.js","./components/form-select/form-select":"../../node_modules/bootstrap-vue/esm/components/form-select/form-select.js","./components/form-select/form-select-option":"../../node_modules/bootstrap-vue/esm/components/form-select/form-select-option.js","./components/form-select/form-select-option-group":"../../node_modules/bootstrap-vue/esm/components/form-select/form-select-option-group.js","./components/form-spinbutton":"../../node_modules/bootstrap-vue/esm/components/form-spinbutton/index.js","./components/form-spinbutton/form-spinbutton":"../../node_modules/bootstrap-vue/esm/components/form-spinbutton/form-spinbutton.js","./components/form-textarea":"../../node_modules/bootstrap-vue/esm/components/form-textarea/index.js","./components/form-textarea/form-textarea":"../../node_modules/bootstrap-vue/esm/components/form-textarea/form-textarea.js","./components/form-timepicker":"../../node_modules/bootstrap-vue/esm/components/form-timepicker/index.js","./components/form-timepicker/form-timepicker":"../../node_modules/bootstrap-vue/esm/components/form-timepicker/form-timepicker.js","./components/image":"../../node_modules/bootstrap-vue/esm/components/image/index.js","./components/image/img":"../../node_modules/bootstrap-vue/esm/components/image/img.js","./components/image/img-lazy":"../../node_modules/bootstrap-vue/esm/components/image/img-lazy.js","./components/input-group":"../../node_modules/bootstrap-vue/esm/components/input-group/index.js","./components/input-group/input-group":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group.js","./components/input-group/input-group-addon":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-addon.js","./components/input-group/input-group-append":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-append.js","./components/input-group/input-group-prepend":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-prepend.js","./components/input-group/input-group-text":"../../node_modules/bootstrap-vue/esm/components/input-group/input-group-text.js","./components/jumbotron":"../../node_modules/bootstrap-vue/esm/components/jumbotron/index.js","./components/jumbotron/jumbotron":"../../node_modules/bootstrap-vue/esm/components/jumbotron/jumbotron.js","./components/layout":"../../node_modules/bootstrap-vue/esm/components/layout/index.js","./components/layout/container":"../../node_modules/bootstrap-vue/esm/components/layout/container.js","./components/layout/row":"../../node_modules/bootstrap-vue/esm/components/layout/row.js","./components/layout/col":"../../node_modules/bootstrap-vue/esm/components/layout/col.js","./components/layout/form-row":"../../node_modules/bootstrap-vue/esm/components/layout/form-row.js","./components/link":"../../node_modules/bootstrap-vue/esm/components/link/index.js","./components/link/link":"../../node_modules/bootstrap-vue/esm/components/link/link.js","./components/list-group":"../../node_modules/bootstrap-vue/esm/components/list-group/index.js","./components/list-group/list-group":"../../node_modules/bootstrap-vue/esm/components/list-group/list-group.js","./components/list-group/list-group-item":"../../node_modules/bootstrap-vue/esm/components/list-group/list-group-item.js","./components/media":"../../node_modules/bootstrap-vue/esm/components/media/index.js","./components/media/media":"../../node_modules/bootstrap-vue/esm/components/media/media.js","./components/media/media-aside":"../../node_modules/bootstrap-vue/esm/components/media/media-aside.js","./components/media/media-body":"../../node_modules/bootstrap-vue/esm/components/media/media-body.js","./components/modal":"../../node_modules/bootstrap-vue/esm/components/modal/index.js","./components/modal/modal":"../../node_modules/bootstrap-vue/esm/components/modal/modal.js","./components/nav":"../../node_modules/bootstrap-vue/esm/components/nav/index.js","./components/nav/nav":"../../node_modules/bootstrap-vue/esm/components/nav/nav.js","./components/nav/nav-form":"../../node_modules/bootstrap-vue/esm/components/nav/nav-form.js","./components/nav/nav-item":"../../node_modules/bootstrap-vue/esm/components/nav/nav-item.js","./components/nav/nav-item-dropdown":"../../node_modules/bootstrap-vue/esm/components/nav/nav-item-dropdown.js","./components/nav/nav-text":"../../node_modules/bootstrap-vue/esm/components/nav/nav-text.js","./components/navbar":"../../node_modules/bootstrap-vue/esm/components/navbar/index.js","./components/navbar/navbar":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar.js","./components/navbar/navbar-brand":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar-brand.js","./components/navbar/navbar-nav":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar-nav.js","./components/navbar/navbar-toggle":"../../node_modules/bootstrap-vue/esm/components/navbar/navbar-toggle.js","./components/overlay":"../../node_modules/bootstrap-vue/esm/components/overlay/index.js","./components/overlay/overlay":"../../node_modules/bootstrap-vue/esm/components/overlay/overlay.js","./components/pagination":"../../node_modules/bootstrap-vue/esm/components/pagination/index.js","./components/pagination/pagination":"../../node_modules/bootstrap-vue/esm/components/pagination/pagination.js","./components/pagination-nav":"../../node_modules/bootstrap-vue/esm/components/pagination-nav/index.js","./components/pagination-nav/pagination-nav":"../../node_modules/bootstrap-vue/esm/components/pagination-nav/pagination-nav.js","./components/popover":"../../node_modules/bootstrap-vue/esm/components/popover/index.js","./components/popover/popover":"../../node_modules/bootstrap-vue/esm/components/popover/popover.js","./components/progress":"../../node_modules/bootstrap-vue/esm/components/progress/index.js","./components/progress/progress":"../../node_modules/bootstrap-vue/esm/components/progress/progress.js","./components/progress/progress-bar":"../../node_modules/bootstrap-vue/esm/components/progress/progress-bar.js","./components/sidebar":"../../node_modules/bootstrap-vue/esm/components/sidebar/index.js","./components/sidebar/sidebar":"../../node_modules/bootstrap-vue/esm/components/sidebar/sidebar.js","./components/spinner":"../../node_modules/bootstrap-vue/esm/components/spinner/index.js","./components/spinner/spinner":"../../node_modules/bootstrap-vue/esm/components/spinner/spinner.js","./components/table":"../../node_modules/bootstrap-vue/esm/components/table/index.js","./components/table/table":"../../node_modules/bootstrap-vue/esm/components/table/table.js","./components/table/table-lite":"../../node_modules/bootstrap-vue/esm/components/table/table-lite.js","./components/table/table-simple":"../../node_modules/bootstrap-vue/esm/components/table/table-simple.js","./components/table/tbody":"../../node_modules/bootstrap-vue/esm/components/table/tbody.js","./components/table/thead":"../../node_modules/bootstrap-vue/esm/components/table/thead.js","./components/table/tfoot":"../../node_modules/bootstrap-vue/esm/components/table/tfoot.js","./components/table/tr":"../../node_modules/bootstrap-vue/esm/components/table/tr.js","./components/table/th":"../../node_modules/bootstrap-vue/esm/components/table/th.js","./components/table/td":"../../node_modules/bootstrap-vue/esm/components/table/td.js","./components/tabs":"../../node_modules/bootstrap-vue/esm/components/tabs/index.js","./components/tabs/tabs":"../../node_modules/bootstrap-vue/esm/components/tabs/tabs.js","./components/tabs/tab":"../../node_modules/bootstrap-vue/esm/components/tabs/tab.js","./components/time":"../../node_modules/bootstrap-vue/esm/components/time/index.js","./components/time/time":"../../node_modules/bootstrap-vue/esm/components/time/time.js","./components/toast":"../../node_modules/bootstrap-vue/esm/components/toast/index.js","./components/toast/toast":"../../node_modules/bootstrap-vue/esm/components/toast/toast.js","./components/toast/toaster":"../../node_modules/bootstrap-vue/esm/components/toast/toaster.js","./components/tooltip":"../../node_modules/bootstrap-vue/esm/components/tooltip/index.js","./components/tooltip/tooltip":"../../node_modules/bootstrap-vue/esm/components/tooltip/tooltip.js","./directives/hover":"../../node_modules/bootstrap-vue/esm/directives/hover/index.js","./directives/hover/hover":"../../node_modules/bootstrap-vue/esm/directives/hover/hover.js","./directives/modal":"../../node_modules/bootstrap-vue/esm/directives/modal/index.js","./directives/modal/modal":"../../node_modules/bootstrap-vue/esm/directives/modal/modal.js","./directives/popover":"../../node_modules/bootstrap-vue/esm/directives/popover/index.js","./directives/popover/popover":"../../node_modules/bootstrap-vue/esm/directives/popover/popover.js","./directives/scrollspy":"../../node_modules/bootstrap-vue/esm/directives/scrollspy/index.js","./directives/scrollspy/scrollspy":"../../node_modules/bootstrap-vue/esm/directives/scrollspy/scrollspy.js","./directives/toggle":"../../node_modules/bootstrap-vue/esm/directives/toggle/index.js","./directives/toggle/toggle":"../../node_modules/bootstrap-vue/esm/directives/toggle/toggle.js","./directives/tooltip":"../../node_modules/bootstrap-vue/esm/directives/tooltip/index.js","./directives/tooltip/tooltip":"../../node_modules/bootstrap-vue/esm/directives/tooltip/tooltip.js","./directives/visible":"../../node_modules/bootstrap-vue/esm/directives/visible/index.js","./directives/visible/visible":"../../node_modules/bootstrap-vue/esm/directives/visible/visible.js"}],"credits-component/credits-ctrl.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _guestCtrl = _interopRequireDefault(require("./guest-ctrl.vue"));
+var _creditsCtrl = _interopRequireDefault(require("./credits-ctrl.vue"));
 
 require("bootstrap/dist/css/bootstrap.css");
 
@@ -57596,10 +57649,10 @@ _vue.default.use(_bootstrapVue2.IconsPlugin);
 
 new _vue.default({
   render: function render(h) {
-    return h(_guestCtrl.default);
+    return h(_creditsCtrl.default);
   }
 }).$mount('#app');
-},{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","./guest-ctrl.vue":"guest-component/guest-ctrl.vue","bootstrap/dist/css/bootstrap.css":"../../node_modules/bootstrap/dist/css/bootstrap.css","bootstrap-vue/dist/bootstrap-vue.css":"../../node_modules/bootstrap-vue/dist/bootstrap-vue.css","bootstrap-vue":"../../node_modules/bootstrap-vue/esm/index.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","./credits-ctrl.vue":"credits-component/credits-ctrl.vue","bootstrap/dist/css/bootstrap.css":"../../node_modules/bootstrap/dist/css/bootstrap.css","bootstrap-vue/dist/bootstrap-vue.css":"../../node_modules/bootstrap-vue/dist/bootstrap-vue.css","bootstrap-vue":"../../node_modules/bootstrap-vue/esm/index.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -57803,5 +57856,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","guest-component/guest-ctrl.js"], null)
-//# sourceMappingURL=guest-ctrl.02fa7762.js.map
+},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","credits-component/credits-ctrl.js"], null)
+//# sourceMappingURL=credits-ctrl.dee07b44.js.map

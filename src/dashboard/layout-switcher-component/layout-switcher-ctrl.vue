@@ -33,7 +33,8 @@
 					{ text: 'Layout intro', value: 'intro' },
 					{ text: 'Layout invités', value: 'guests' },
 					{ text: 'Layout présentation', value: 'presentation' },
-					{ text: 'Layout vide', value: 'empty' }
+					{ text: 'Layout vide', value: 'empty' },
+					{ text: 'Layout crédits', value: 'credits' }
 				],
 				layout: 'guests',
 				camColor: '#1aff00',
