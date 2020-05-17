@@ -71,7 +71,7 @@
   height: 0;
   border-top: 40px solid transparent;
   border-left: 20px solid var(--border-color2);
-  border-bottom: 0px solid transparent;
+  border-bottom: 0 solid transparent;
   border-right: 0 solid transparent;
   position: absolute;
   top: 0;
@@ -87,14 +87,11 @@
 .lower-third .sub-cat[data-v-11477b] {
   color: var(--border-color2);
   display: inline-block;
-  margin-left: 100px;
+  margin-left: 1.3em;
   font-size: 1.3em;
 }
-.lower-third.small[data-v-11477b], .lower-third[layout=presentation][data-v-11477b] {
-  background: none;
-}
 .lower-third.small h3.tde[data-v-11477b]:after, .lower-third[layout=presentation] h3.tde[data-v-11477b]:after {
-  border-top: 30px solid;
+  border-top: 30px solid transparent;
 }
 .lower-third.small h3.tde span[data-v-11477b], .lower-third[layout=presentation] h3.tde span[data-v-11477b] {
   padding: 5px 10px 5px 10px;
@@ -102,8 +99,22 @@
 .lower-third.small h3.tde .sub-cat[data-v-11477b], .lower-third[layout=presentation] h3.tde .sub-cat[data-v-11477b] {
   display: none;
 }
+.lower-third.small[layout=presentation][data-v-11477b] {
+  background: none;
+}
 .lower-third.small[layout=presentation] .sub-cat[data-v-11477b] {
   display: none;
+}
+[layout=presentation][totalcams="1"].lower-third[data-v-11477b] {
+  background: none;
+  bottom: -26px;
+}
+[layout=presentation][totalcams="1"].lower-third .sub-cat[data-v-11477b] {
+  font-size: 15px;
+  margin: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
 .guest1[data-v-305dad] {
   grid-area: g1;
@@ -191,6 +202,18 @@
 }
 [layout=presentation] .presentation-frame[data-v-305dad] {
   display: inherit;
+}
+[layout=presentation].count-1[data-v-305dad] {
+  grid-template-columns: 20% 1fr 20%;
+  grid-template-rows: 1fr 1fr 30%;
+  grid-template-areas: "pres pres pres" "pres pres pres" "pres pres pres";
+  padding: 0;
+}
+[layout=presentation].count-1 .guest1[data-v-305dad] {
+  grid-column: 3/3;
+  grid-row: 3/3;
+  z-index: 2;
+  margin-right: 4px;
 }
 [layout=presentation].count-2[data-v-305dad] {
   grid-template-columns: 20% 1fr 1fr;

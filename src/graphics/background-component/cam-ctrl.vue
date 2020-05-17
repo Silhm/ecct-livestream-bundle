@@ -2,17 +2,17 @@
 	<div class="cam-content animated-gradient-border" :style="camStyle">
 		{{title}}
 
-		<div v-if="camera && camera.name" class="lower-third" :class="{'small':(totalCams > 4) || (layout === 'presentation')}" :layout="layout">
+		<div v-if="camera && camera.name" class="lower-third" :class="{'small':(totalCams > 4) || ((layout === 'presentation') && totalCams>1)}" :layout="layout" :totalCams="totalCams">
 			<h3 class="tde">
 				<span class="null">{{camera.name}}</span>
 			</h3>
-			<div class="sub-cat" v-if="totalCams < 5">
+			<div class="sub-cat">
 				{{camera.role}}
 			</div>
 		</div>
 
 		<div class="top"></div>
-		<div class="right"></div>
+		<div class="right" v-if="!((totalCams ===1) && (layout === 'presentation'))"></div>
 	</div>
 </template>
 
@@ -88,7 +88,7 @@
 
 		text-align: left;
 		display: block;
-		background: rgba(255, 255, 255, 0.80);;
+		background: rgba(255, 255, 255, 0.80);
 		width: 100%;
 
 		h3.tde {
@@ -104,7 +104,7 @@
 				height: 0;
 				border-top: 40px solid transparent;
 				border-left: 20px solid var(--border-color2);
-				border-bottom: 0px solid transparent;
+				border-bottom: 0 solid transparent;
 				border-right: 0 solid transparent;
 				position: absolute;
 				top: 0;
@@ -122,16 +122,15 @@
 		.sub-cat {
 			color: var(--border-color2);
 			display: inline-block;
-			margin-left: 100px;
+			margin-left: 1.3em;
 			font-size: 1.3em;
 		}
 
 		&.small,
 		&[layout="presentation"]{
-			background: none;
 			h3.tde {
 				&:after {
-					border-top: 30px solid;
+					border-top: 30px solid transparent;
 				}
 				span {
 					padding: 5px 10px 5px 10px;
@@ -142,11 +141,22 @@
 			}
 		}
 		&.small[layout="presentation"]{
+			background: none;
 			.sub-cat{
 				display: none;
 			}
 		}
-
+	}
+	[layout="presentation"][totalcams="1"].lower-third {
+		background: none;
+		bottom: -26px;
+		.sub-cat{
+			font-size: 15px;
+			margin: 0;
+			width: 100%;
+			background: rgba(255, 255, 255, 0.8);
+			text-align: center;
+		}
 
 	}
 

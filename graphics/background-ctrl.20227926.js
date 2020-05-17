@@ -9302,9 +9302,11 @@ exports.default = _default;
             {
               staticClass: "lower-third",
               class: {
-                small: _vm.totalCams > 4 || _vm.layout === "presentation"
+                small:
+                  _vm.totalCams > 4 ||
+                  (_vm.layout === "presentation" && _vm.totalCams > 1)
               },
-              attrs: { layout: _vm.layout }
+              attrs: { layout: _vm.layout, totalCams: _vm.totalCams }
             },
             [
               _c("h3", { staticClass: "tde" }, [
@@ -9313,18 +9315,18 @@ exports.default = _default;
                 ])
               ]),
               _vm._v(" "),
-              _vm.totalCams < 5
-                ? _c("div", { staticClass: "sub-cat" }, [
-                    _vm._v("\n\t\t\t" + _vm._s(_vm.camera.role) + "\n\t\t")
-                  ])
-                : _vm._e()
+              _c("div", { staticClass: "sub-cat" }, [
+                _vm._v("\n\t\t\t" + _vm._s(_vm.camera.role) + "\n\t\t")
+              ])
             ]
           )
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "top" }),
       _vm._v(" "),
-      _c("div", { staticClass: "right" })
+      !(_vm.totalCams === 1 && _vm.layout === "presentation")
+        ? _c("div", { staticClass: "right" })
+        : _vm._e()
     ]
   )
 }
@@ -67673,7 +67675,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37241" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

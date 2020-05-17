@@ -153,6 +153,21 @@
 		.presentation-frame{
 			display: inherit;
 		}
+		&.count-1 {
+			grid-template-columns: 20% 1fr 20%;
+			grid-template-rows: 1fr 1fr 30%;
+			grid-template-areas:
+				"pres pres pres"
+				"pres pres pres"
+				"pres pres pres";
+			padding: 0;
+			.guest1 {
+				grid-column: 3 / 3;
+				grid-row: 3 / 3;
+				z-index: 2;
+				margin-right: 4px;
+			}
+		}
 		&.count-2 {
 			grid-template-columns: 20% 1fr 1fr;
 			grid-template-rows: 1fr 1fr 1fr;
