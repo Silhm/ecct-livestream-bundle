@@ -60,12 +60,27 @@
         "headerColor": "#49964f"
       },
       {
-        "name": "moment",
-        "title": "(Moments) pas encore dispo",
-        "workspace": "in dev",
-        "width": 7,
-        "file": "moment-ctrl.html",
-        "headerColor": "#494f96"
+        "name": "lowerThird",
+        "title": "LowerThird",
+        "workspace": "ECCT JAO",
+        "width": 10,
+        "file": "lower-third-ctrl.html",
+        "headerColor": "#49964f"
+      },
+      {
+        "name": "planning",
+        "title": "Planning",
+        "workspace": "ECCT JAO",
+        "width": 10,
+        "file": "planning-ctrl.html",
+        "headerColor": "#49964f"
+      }, {
+        "name": "control",
+        "title": "Control Room",
+        "workspace": "ECCT JAO",
+        "width": 2,
+        "file": "control-ctrl.html",
+        "headerColor": "#49964f"
       },
       {
         "name": "layout-switcher",
@@ -80,6 +95,18 @@
       {
         "name": "Background Howl",
         "file": "background-ctrl.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "name": "Jao Planning",
+        "file": "jao-planning.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "name": "Jao Overlays",
+        "file": "jao-overlays.html",
         "width": 1920,
         "height": 1080
       }
@@ -110,10 +137,14 @@
   "repository": "https://github.com/nodecg/nodecg.git",
   "license": "MIT",
   "dependencies": {
+    "@vue/component-compiler-utils": "^3.1.2",
+    "assets": "^3.0.1",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.12.0",
     "child_process": "^1.0.2",
+    "gsap": "^3.2.6",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.31",
     "nodecg-vue": "^0.5.2",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.3",
@@ -122,7 +153,6 @@
     "vue-hot-reload-api": "^2.3.4",
     "vue-moment": "^4.1.0",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0",
-    "@vue/component-compiler-utils": "^3.1.2"
+    "webpack": "^4.43.0"
   }
 }

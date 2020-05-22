@@ -1,0 +1,139 @@
+{
+"agenda": [
+	{
+		"range": ["00:30","10:15"],
+		"display": {"h": 10, "m": "", "a": ""},
+		"location": "",
+		"title": "Accueil",
+		"desc": "Bienvenue à la JAO"
+	},
+	{
+		"range": ["10:15","10:29"],
+		"display": {"h": 10, "m": 15, "a": ""},
+		"location": "",
+		"title": "Dooz et les escapes"
+	},
+	{
+		"range": ["10:30","10:59"],
+		"display": {"h": 10, "m": 30, "a": ""
+		},
+		"location": "",
+		"title": "Le réveil du Jedi"
+	},
+	{
+		"range": ["11:00","11:29"],
+		"display": {"h": 11, "m": "", "a": ""},
+		"location": "",
+		"title": "Excursions dans les allées de la Japan Addict"
+	},
+	{
+		"range": ["11:30", "12:00"],
+		"display": { "h": 11, "m": 30, "a": ""},
+		"location": "",
+		"title": "Quizz Manga"
+	},
+	{
+		"range": ["12:00", "12:29"],
+		"display": {"h": null, "m": "Midi", "a": ""},
+		"location": "",
+		"title": "Tuto Cuisine de Fanny"
+	},
+	{
+		"range": ["12:30", "12:59"],
+		"display": {"h": 12, "m": 30, "a": ""},
+		"location": "",
+		"title": "Live draw"
+	},
+	{
+		"range": ["13:00","13:29"],
+		"display": {"h": 13, "m": "", "a": ""},
+		"location": "",
+		"title": "Quizz Jeux Vidéo"
+	},
+	{
+		"range": ["13:30","13:59"],
+		"display": {"h": 13, "m": 30, "a": ""},
+		"location": "",
+		"title": "Excursion dans les allées de la Japan Addict"
+	},
+	{
+		"range": ["14:00", "14:29"],
+		"display": {"h": 14, "m": "", "a": ""},
+		"location": "",
+		"title": "Animal Crossing : Concours d'Îles"
+	},
+	{
+		"range": ["14:30", "14:59"],
+		"display": {"h": 14, "m": 30, "a": ""
+		},
+		"location": "",
+		"title": "Table Ronde Cosplay"
+	},
+	{
+		"range": ["15:00","15:59"],
+		"display": {"h": 15, "m": "", "a": ""},
+		"location": "",
+		"title": "Concours Cosplay"
+	},
+	{
+		"range": ["16:00", "16:29"],
+		"display": { "h": 16, "m": "", "a": "" },
+		"location": "",
+		"title": "Excursion dans les allées de la Japan Addict"
+	},
+	{
+		"range": ["16:30", "16:59"],
+		"display": {"h": 16, "m": 30, "a": ""},
+		"location": "",
+		"title": "Quizz Japon"
+	},
+	{
+		"range": ["17:00","17:59"],
+		"display": {"h": 17, "m": "", "a": ""},
+		"location": "",
+		"title": "Japon, ma tasse de thé"
+	},
+	{
+		"range": ["18:00","18:30"],
+		"display": {"h": 18, "m": "", "a": ""},
+		"location": "",
+		"title": "K-Pop"
+	},
+	{
+		"range": ["18:30","18:59"],
+		"display": {"h": 18, "m": 30, "a": ""},
+		"location": "",
+		"title": "Excursion dans les allées de la Japan Addict"
+	},
+	{
+		"range": ["19:00", "19:59"],
+		"display": {"h": 19, "m": "", "a": ""},
+		"location": "",
+		"title": "Concert"
+	},
+	{
+		"range": ["20:00","20:29"],
+		"display": {"h": 20, "m": "", "a": ""},
+		"location": "",
+		"title": "DIY: Kame House de Greg"
+	},
+	{
+		"range": ["20:30", "21:29"],
+		"display": {"h": 20, "m": 30, "a": ""},
+		"location": "",
+		"title": "JDR dont vous êtes le Héros"
+	},
+	{
+		"range": ["21:30", "21:59"],
+		"display": {"h": 21, "m": 30, "a": ""},
+		"location": "",
+		"title": "Révélation: Japan Addict Z7"
+	},
+	{
+		"range": ["22:00","23:59"],
+		"display": {"h": 22, "m": "", "a": ""},
+		"location": "",
+		"title": "Fin"
+	}
+]
+}
