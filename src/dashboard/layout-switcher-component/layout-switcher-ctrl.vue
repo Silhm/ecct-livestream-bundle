@@ -33,6 +33,7 @@
 					{ text: 'Layout intro', value: 'intro' },
 					{ text: 'Layout invités', value: 'guests' },
 					{ text: 'Layout présentation', value: 'presentation' },
+					{ text: 'Layout gaming', value: 'gaming' },
 					{ text: 'Layout vide', value: 'empty' },
 					{ text: 'Layout crédits', value: 'credits' }
 				],

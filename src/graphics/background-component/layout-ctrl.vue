@@ -147,6 +147,35 @@
 	}
 
 
+	[layout="gaming"] {
+		&.count-1 {
+			grid-template-columns: 20% 1fr 20%;
+			grid-template-rows: 1fr 1fr 30%;
+			grid-template-areas:
+				"pres pres pres"
+				"pres pres pres"
+				"pres pres pres";
+			padding: 0;
+			.guest1 {
+				background-color: transparent;
+				position: fixed;
+				bottom: 75px;
+				height: 267px;
+				width: 240px;
+				right: 10px;
+				z-index: 1;
+				border: 0;
+				.lower-third{
+					top: 0;
+				}
+			}
+			.guest2,.guest3,.guest4,.guest5,.guest6,.guest7,.guest8{
+				display: none;
+			}
+
+
+		}
+	}
 
 
 	[layout="presentation"] {

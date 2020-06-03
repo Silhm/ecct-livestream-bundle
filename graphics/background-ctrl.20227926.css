@@ -49,6 +49,30 @@
   background: url(canap-05.4524516e.png) no-repeat center;
   background-size: contain;
 }
+.guest1 .lower-third[data-v-11477b] {
+  top: 0;
+  bottom: auto;
+  text-align: right;
+  background: none;
+}
+.guest1 .lower-third h3.tde[data-v-11477b]:before {
+  content: "";
+  position: relative;
+  top: 30px;
+  width: 30px;
+  height: 40px;
+  border-top: 40px solid var(--border-color2);
+  border-left: 20px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-right: 0 solid transparent;
+  left: 0;
+}
+.guest1 .lower-third h3.tde[data-v-11477b]:after {
+  border-left: 30px solid transparent;
+}
+.guest1 .lower-third .sub-cat[data-v-11477b] {
+  display: none;
+}
 .lower-third[data-v-11477b] {
   position: absolute;
   bottom: 0;
@@ -198,6 +222,28 @@
 }
 [layout=intro] .cam-content[data-v-305dad],
 [layout=intro] .presentation-frame[data-v-305dad] {
+  display: none;
+}
+[layout=gaming].count-1[data-v-305dad] {
+  grid-template-columns: 20% 1fr 20%;
+  grid-template-rows: 1fr 1fr 30%;
+  grid-template-areas: "pres pres pres" "pres pres pres" "pres pres pres";
+  padding: 0;
+}
+[layout=gaming].count-1 .guest1[data-v-305dad] {
+  background-color: transparent;
+  position: fixed;
+  bottom: 75px;
+  height: 267px;
+  width: 240px;
+  right: 10px;
+  z-index: 1;
+  border: 0;
+}
+[layout=gaming].count-1 .guest1 .lower-third[data-v-305dad] {
+  top: 0;
+}
+[layout=gaming].count-1 .guest2[data-v-305dad], [layout=gaming].count-1 .guest3[data-v-305dad], [layout=gaming].count-1 .guest4[data-v-305dad], [layout=gaming].count-1 .guest5[data-v-305dad], [layout=gaming].count-1 .guest6[data-v-305dad], [layout=gaming].count-1 .guest7[data-v-305dad], [layout=gaming].count-1 .guest8[data-v-305dad] {
   display: none;
 }
 [layout=presentation] .presentation-frame[data-v-305dad] {

@@ -8931,6 +8931,9 @@ var _default = {
         text: 'Layout présentation',
         value: 'presentation'
       }, {
+        text: 'Layout gaming',
+        value: 'gaming'
+      }, {
         text: 'Layout vide',
         value: 'empty'
       }, {
@@ -57454,7 +57457,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33459" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35537" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -81,6 +81,35 @@
 		background-size: contain;
 	}
 
+	.guest1 .lower-third{
+		top: 0;
+		bottom: auto;
+		text-align: right;
+		background: none;
+
+		h3.tde {
+			&:before{
+				content: "";
+				position: relative;
+				top: 30px;
+				width: 30px;
+				height: 40px;
+				border-top: 40px solid var(--border-color2);
+				border-left: 20px solid transparent;
+				border-bottom: 0 solid transparent;
+				border-right: 0 solid transparent;
+				left: 0;
+			}
+			&:after {
+				border-left: 30px solid transparent;
+			}
+		}
+		.sub-cat{
+			display: none;
+		}
+	}
+
+
 	.lower-third{
 		position: absolute;
 		bottom: 0;
