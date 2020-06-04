@@ -172,8 +172,6 @@
 			.guest2,.guest3,.guest4,.guest5,.guest6,.guest7,.guest8{
 				display: none;
 			}
-
-
 		}
 	}
 

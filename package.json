@@ -11,7 +11,7 @@
   "scripts": {
     "start": "npm run bundle",
     "bundle": "node scripts/bundle.js",
-    "build": "set NODE_ENV=production && npm run bundle"
+    "build": "export NODE_ENV=production && npm run bundle"
   },
   "files": [
     "src/dashboard",

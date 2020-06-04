@@ -2,7 +2,7 @@
 	<b-container fluid class="mt-2 mb-2">
 		<b-row class="mb-2 mb-2">
 			<b-col cols=12>
-				<b-form inline @keypress.enter="addEvent">
+				<b-form v-if="false" inline @keypress.enter="addEvent">
 					<b-form-input
 						id="nameInput"
 						type="text"
@@ -107,7 +107,7 @@
 		created() {
 			this.replicant = nodecg.Replicant('planning','ECCT');
 			nodecg.readReplicant('planning', 'ECCT', value => {
-				this.agenda = value.agenda || agendaJSON;
+				this.agenda = (value && value.agenda) || agendaJSON;
 			});
 
 			this.id=0;
@@ -122,7 +122,7 @@
 				console.log("planning list sent!",this.agenda);
 			},
 			addEvent(){
-				console.log("TODO");
+				console.log("TODO: handle event add");
 				if(!this.validateVisible){this.validateVisible=true;}
 				this.events.push({
 					id: this.id,
