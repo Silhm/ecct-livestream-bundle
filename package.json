@@ -155,6 +155,6 @@
     "vue-hot-reload-api": "^2.3.4",
     "vue-moment": "^4.1.0",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0"
+    "webpack": "^5.105.4"
   }
 }
